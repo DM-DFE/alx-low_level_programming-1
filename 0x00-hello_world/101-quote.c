@@ -7,8 +7,10 @@
  */
 int main(void)
 {
-	write(STDERR_FILENO, "and that piece of art is useful\",", 32);
-	write(STDERR_FILENO, " - Dora Korpar, 2015-10-19\n", 26);
+	char* str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	while (*str)
+		write(STDERR_FILENO, str++, 1);
 
 	return (1);
 }
