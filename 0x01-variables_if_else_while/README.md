@@ -23,7 +23,6 @@
 
 </details>
 
-
 <details>
 <summary><a href="./1-last_digit.c">1. The last digit</a></summary><br>
 
@@ -117,3 +116,37 @@
 - Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 102-print_comb5.c -o 102-print_comb5`
 
 </details>
+
+## Notes
+### `?:` operator
+The `?:` operator is called the ternary operator. It is a shortcut for an `if` statement. It is used to evaluate a condition and return a value based on the result of the condition. The syntax is as follows:
+
+```c
+condition ? expression1 : expression2;
+```
+- The `condition` is a boolean expression that is evaluated first.
+- If the condition is true, the `expression1` is evaluated and returned.
+- If the condition is false, the `expression2` is evaluated and returned.
+
+#### Example
+```c
+int x = 5;
+int y = 10;
+int z = x < y ? x : y;
+```
+In this example, the condition `x < y` is true, so the value of `z` is `x`, which is `5`. 
+The ternary operator can be used to simplify `if` statements. For example, the following `if` statement:
+```c
+if (x < y)
+{
+    z = x;
+}
+else
+{
+    z = y;
+}
+```
+can be rewritten as:
+```c
+z = x < y ? x : y;
+```
