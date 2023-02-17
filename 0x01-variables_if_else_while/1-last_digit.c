@@ -22,11 +22,16 @@ int main(void)
 		printf("%d is zero\n", n);
 	else
 	{
-		char *sign = (n % 10 > 5) ? "is greater than 5"
-				: "is less than 6";
+		int last_digit = n % 10;
 
-		printf("Last digit of %d is %d and %s\n", n, n % 10,
-				(n % 10 == 0) ? "is 0" : sign);
+		char *sign = (n % 10 > 5) ? "and is greater than 5"
+				: "and is less than 6";
+
+		char *is_zero = (n % 10 == 0) ? "and is 0" : "and not 0";
+
+		printf("Last digit of %d is %d %s %s\n", n, last_digit,
+		(last_digit) ? sign : "", (last_digit < 6) ? is_zero : "");
+
 	}
 	return (0);
 }
