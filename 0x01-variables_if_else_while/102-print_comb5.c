@@ -8,24 +8,27 @@
  */
 int main(void)
 {
+	int i, j;
 
-	for (int i = 0; i < 100; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (int j = i + 1; j < 100; j++)
+		for (j = i + 1; j < 100; j++)
 		{
-
 			putchar(i / 10 + '0');
 			putchar(i % 10 + '0');
 			putchar(' ');
 			putchar(j / 10 + '0');
 			putchar(j % 10 + '0');
 
-			char *comma = (i != 98) ? ", " : "\n";
+			if (i != 98)
+			{
+				putchar(',');
+				putchar(' ');
 
-			while (*comma)
-				putchar(*comma++);
+			}
 		}
 	}
+	putchar('\n');
 
 	return (0);
 }
