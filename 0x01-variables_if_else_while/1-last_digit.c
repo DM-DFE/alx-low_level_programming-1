@@ -29,7 +29,7 @@ int main(void)
 
 		char *is_zero = (n % 10 == 0) ? "and is 0" : "and not 0";
 
-		printf("Last digit of %d is %d %s %s\n", n, last_digit,
+		printf("Last digit of %d is %d %s %s \n", n, last_digit,
 		(last_digit) ? sign : "", (last_digit < 6) ? is_zero : "");
 
 	}
