@@ -23,8 +23,9 @@ int main(void)
 	else
 	{
 		char *sign = (n % 10 > 5) ? "is greater than 5"
-				: "is less than 6 and not 0";
-		printf("Last digit of %d is %d and %s\n", n, n % 10, sign);
+				: "is less than 6";
+		char *is_zero = (n % 10 == 0) ? "is 0" : "not 0";
+		printf("Last digit of %d is %d and %s and %s\n", n, n % 10, sign , is_zero);
 	}
 	return (0);
 }
