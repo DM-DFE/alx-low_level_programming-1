@@ -9,12 +9,13 @@
 int main(void)
 {
 	int i;
+	char *comma;
 
 	for (i = 0; i < 10; i++)
 	{
 		putchar(i + '0');
 
-		char *comma = (i < 9) ? ", " : "\n";
+		comma = (i < 9) ? ", " : "\n";
 
 		while (*comma)
 			putchar(*(comma++));
