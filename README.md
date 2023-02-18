@@ -16,17 +16,17 @@
 </p>
 
 The compilation process has four different steps:
-    1. The preprocessing stage
-    2. The compiling stage
-    3. The assembling stage
-    4. The linking stage
+1. The preprocessing stage
+2. The compiling stage
+3. The assembling stage
+4. The linking stage
     
 ### Step 1: Preprocessing `-E`
 The preprocessor reads the source code and performs various transformations to it:
-    - Expanding macros (replacing all of the macros with their values)
-    - Handling include files (replaces the #include macro with the content of the header file specified in <>)
-    - Removing comments
-    - The results in a new file called a translation unit stored in a file with `.i` extension (intermediate)
+- Expanding macros (replacing all of the macros with their values)
+- Handling include files (replaces the #include macro with the content of the header file specified in <>)
+- Removing comments
+- The results in a new file called a translation unit stored in a file with `.i` extension (intermediate)
     
 ### Step 2: Compiling `-S`
 The build phase provides us with assembly code that is unique to the target architecture.
@@ -40,7 +40,6 @@ In the third stage of compilation, an assembler is used to convert assembly lang
 The linker is an important tool in compilation that performs two tasks: resolution and relocation of symbols. It arranges the pieces of object code so that functions in one piece can successfully call functions in others. The linker also adds parts that contain the instructions for the library functions used by the program. The result of this stage is the executable file. usually `a.out` if `-o` is not specified.
 
 ## About
-
 - This repository consists of all the C programming projects done with [ALX Africa](https://www.alxafrica.com/) Full stack Software Engineering course in partnership with [Holberton School](https://www.holbertonschool.com/).
 - All main.c files are prewritten by the school. We build functions that produce a specific output while also taking into consideration edge cases.
 
