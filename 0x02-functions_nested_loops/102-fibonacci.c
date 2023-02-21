@@ -13,7 +13,7 @@ int main(void)
 
 	for (i = 0; i < 50; i++)
 	{
-		printf("%lu%s", curr, i == 49 ? "\n": ", ");
+		printf("%lu%s", curr, i == 49 ? "\n" : ", ");
 		next = prev + curr;
 		prev = curr;
 		curr = next;
