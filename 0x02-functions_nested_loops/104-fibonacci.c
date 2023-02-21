@@ -2,16 +2,17 @@
 #include <string.h>	/* strlen, strcpy */
 
 /**
- * str_reverse_inplace - function that reverses the order of a string in place
+ * reverse_string - function that reverses the order of a string
  *
  * Description:
- * This function takes a string and reverses the order of its characters in place.
- * The function returns the reversed string.
+ * This function takes a string and reverses the order of its characters
+ * in place and returns the reversed string.
  *
  * @str: the string to be reversed
- * return: pointer to the reversed string
- */
-char *reverse_string(char *str) {
+ * Return: pointer to the reversed string
+*/
+char *reverse_string(char *str)
+{
 	char *left = str;
 	char *right = str + strlen(str) - 1;
 	char temp;
@@ -24,7 +25,7 @@ char *reverse_string(char *str) {
 		right--;
 		left++;
 	}
-	return str;
+	return (str);
 }
 
 /**
@@ -38,9 +39,10 @@ char *reverse_string(char *str) {
  * @num1: the first string to be added
  * @num2: the second string to be added
  *
- * return: pointer to the string containing the result
+ * Return: pointer to the string containing the result
 */
-char *add_strings(char *sum, const char *num1, const char *num2) {
+char *add_strings(char *sum, const char *num1, const char *num2)
+{
 	const char *ptr1 = num1 + strlen(num1) - 1;
 	const char *ptr2 = num2 + strlen(num2) - 1;
 	char *ptr_sum = sum;
@@ -50,13 +52,15 @@ char *add_strings(char *sum, const char *num1, const char *num2) {
 	while (ptr1 >= num1 || ptr2 >= num2 || carry)
 	{
 		digit_sum = carry;
-		if (ptr1 >= num1) digit_sum += *(ptr1--) - '0';
-		if (ptr2 >= num2) digit_sum += *(ptr2--) - '0';
+		if (ptr1 >= num1)
+			digit_sum += *(ptr1--) - '0';
+		if (ptr2 >= num2)
+			digit_sum += *(ptr2--) - '0';
 		*ptr_sum++ = digit_sum % 10 + '0';
 		carry = digit_sum / 10;
 	}
 	*ptr_sum = '\0';
-	return reverse_string(sum);
+	return (reverse_string(sum));
 }
 
 /**
@@ -64,7 +68,8 @@ char *add_strings(char *sum, const char *num1, const char *num2) {
  *
  * Return: 0 (success)
 */
-int main(void) {
+int main(void)
+{
 	char fib[3][300];
 	int i;
 
@@ -78,5 +83,5 @@ int main(void) {
 		strcpy(fib[1], fib[2]);
 	}
 
-	return 0;
+	return (0);
 }
