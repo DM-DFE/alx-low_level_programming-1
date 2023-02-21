@@ -8,7 +8,7 @@
 */
 int main(void)
 {
-	unsigned long long prev = 0, curr = 1, next, sum = 0;
+	unsigned long prev = 0, curr = 1, next, sum = 0;
 
 	while (curr <= 4000000)
 	{
@@ -18,7 +18,7 @@ int main(void)
 		if (curr % 2 == 0)
 			sum += curr;
 	}
-	printf("%llu\n", sum);
+	printf("%lu\n", sum);
 
 	return (0);
 }
