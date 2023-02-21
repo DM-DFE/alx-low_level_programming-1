@@ -9,10 +9,10 @@
 int main(void)
 {
 	int i;
-	int64_t prev = 1, curr = 1, next;
+	unsigned long prev = 1, curr = 1, next;
 
 	for (i = 0; i < 50; i++) {
-		printf("%lld%s", curr, i == 49 ? "\n": ", ");
+		printf("%lu%s", curr, i == 49 ? "\n": ", ");
 		next = prev + curr;
 		prev = curr;
 		curr = next;
