@@ -8,7 +8,7 @@
 int main(void)
 {
 	int i;
-	size_t prev = 1, curr = 1, next;
+	unsigned long prev = 1, curr = 1, next;
 
 	for (i = 0; i < 98; i++)
 	{
