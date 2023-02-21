@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 /**
  * main - prints the first 50 Fibonacci numbers, starting with 1 and 2
@@ -8,10 +9,10 @@
 int main(void)
 {
 	int i;
-	size_t prev = 1, curr = 1, next;
+	int64_t prev = 1, curr = 1, next;
 
 	for (i = 0; i < 50; i++) {
-		printf("%zu%s", curr, i == 49 ? "\n": ", ");
+		printf("%lld%s", curr, i == 49 ? "\n": ", ");
 		next = prev + curr;
 		prev = curr;
 		curr = next;
