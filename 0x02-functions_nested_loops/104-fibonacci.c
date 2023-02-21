@@ -49,7 +49,7 @@ int main(void) {
   strcpy(fib[0], "0");
   strcpy(fib[1], "1");
   for (i = 2; i < 100; i++) {
-    printf("%s%s", str_add(fib[2], fib[1], fib[0]), (i != 100) ? ", " : "\n");
+    printf("%s%s", str_add(fib[2], fib[1], fib[0]), (i != 99) ? ", " : "\n");
     strcpy(fib[0], fib[1]);
     strcpy(fib[1], fib[2]);
   }
