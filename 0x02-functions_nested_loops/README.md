@@ -8,15 +8,28 @@
 - [C - Header Files](https://www.tutorialspoint.com/cprogramming/c_header_files.htm)
 - [C - Books and PDF's](../references) to check out and use as reference.
 
+
+## Tests
+
+- A [Makefile](./Makefile) is provided to compile all the tests.
+- Usage: `make [test_name]`
+- Example: `make 1` will compile and run the test for task 1.
+- Example: `make check-all` will compile and run all tests.
+- Example:`make clean` will remove all executable files.
+- Some test's output will not be displayed in the terminal only `SUCCESS` or `FAILURE`.
+- To print the full output of the particular test, run the executable file directly using `./[test_name]`.
+- All tests are in the [tests](./tests) directory.
+- All tests are compiled with `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g3 -o <name_of_test> <name_of_test>.c <name_of_file>.c`
+- All tests are run with `./<name_of_test>`
+
 ## Tasks
 
 - **Note** for all these challenges we will not be using global variables and any standard library.
 - We will be using function prototypes that will be included in our header file called, [main.h](./main.h).
 - We are allowed to use the prototype funtion [\_putchar](https://github.com/holbertonschool/_putchar.c/blob/master/_putchar.c).
-- All `*-main.c` files will be located in the [main](./main) directory
+- All `*-main.c` files will be located in the [main](./tests) directory
 
 ---
-
 <details>
 <summary><a href="./0-putchar.c">0. _putchar</a></summary><br>
 
