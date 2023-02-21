@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * print_times_table - prints the n times table, starting with 0
  * if n is greater than 15 or less than 0, the function does nothing
@@ -8,10 +10,10 @@
 */
 void print_times_table(int n)
 {
+	int i, j;
+
 	if (n > 15 || n < 0)
 		return;
-
-	int i, j;
 
 	for (i = 0; i <= n; i++)
 	{

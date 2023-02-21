@@ -1,3 +1,4 @@
+#include "main.h"
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
@@ -10,5 +11,8 @@
 */
 int	print_last_digit(int n)
 {
-	return (_putchar('0' + ABS(n % 10)));
+	int last_digit = ABS(n % 10);
+
+	_putchar(last_digit + '0');
+	return (last_digit);
 }
