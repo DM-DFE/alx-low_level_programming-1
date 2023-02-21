@@ -8,10 +8,10 @@
 int main(void)
 {
 	int i;
-	unsigned long long prev = 1, curr = 1, next;
+	size_t prev = 1, curr = 1, next;
 
 	for (i = 0; i < 50; i++) {
-		printf("%llu%s", curr, i == 49 ? "\n": ", ");
+		printf("%zu%s", curr, i == 49 ? "\n": ", ");
 		next = prev + curr;
 		prev = curr;
 		curr = next;
