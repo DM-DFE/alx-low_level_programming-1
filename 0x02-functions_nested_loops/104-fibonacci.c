@@ -60,7 +60,7 @@ char *add_strings(char *sum, const char *num1, const char *num2) {
 }
 
 /**
- * main - prints the first 100 Fibonacci numbers, starting with 0 and 1
+ * main - prints the first 98 Fibonacci numbers, starting with 0 and 1
  *
  * Return: 0 (success)
 */
