@@ -13,6 +13,7 @@
 void print_remaining_days(int month, int day, int year)
 {
 	int days_in_year;
+
 	if ((year % 100 == 0 && year % 400 == 0) || (year % 4 == 0))
 	{
 		/* leap year */
