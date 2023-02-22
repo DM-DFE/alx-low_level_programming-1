@@ -2,7 +2,7 @@
 
 
 <p align="center">  
-<img src ="https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png">
+<img src ="./debugging.png" width="500">
 </p>
 
 > You can't keep doing the same thing and expect different results
