@@ -2,7 +2,7 @@
 
 
 <p align="center">  
-<img src ="./debugging.png" width="500">
+<img src ="./imgs/debugging.png" width="500">
 </p>
 
 > You can't keep doing the same thing and expect different results
