@@ -1,11 +1,11 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99 -g
+CFLAGS=-I. -Wall -Wextra -Werror -pedantic -std=c99
 
 all:
 	@echo "Usage: make [target]"
 
 0:
-	$(CC) $(CFLAGS) 0-main.c positive_or_negative.c
+	$(CC) $(CFLAGS) 0-main.c tests/positive_or_negative.c -o 0-main
 
 1:
 	$(CC) $(CFLAGS) 1-main.c -o 1-main
@@ -20,4 +20,4 @@ all:
 	$(CC) $(CFLAGS) 3-print_remaining_days.c 3-convert_day.c 3-main_b.c -o 3-main_b
 
 clean:
-	rm -rf *.dSYM/ a.out 1-main 2-main 3-main_a 3-main_b
+	rm -f 0-main 1-main 2-main 3-main_a 3-main_b
