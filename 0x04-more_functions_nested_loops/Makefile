@@ -27,7 +27,7 @@ betty:
 	@echo -n "2-mul.c: "
 	@betty 2-mul.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "3-print_numbers.c: "
-	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo "$(FAIL)" fi
+	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo "$(FAIL)"; fi
 	@echo -n "4-print_most_numbers.c: "
 	@betty 4-print_most_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "5-more_numbers.c: "
