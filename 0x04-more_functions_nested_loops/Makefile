@@ -8,8 +8,8 @@ NO_COLOR = \033[0m
 GREEN = \033[0;32m
 RED = \033[0;31m
 
-OK=$(RED)"\t\t[OK]"$(NO_COLOR)
-FAIL=$(RED)"\t\t[FAIL]"$(NO_COLOR)
+OK=$(RED)[OK]$(NO_COLOR)
+FAIL=$(RED)[FAIL]$(NO_COLOR)
 
 .PHONY: all 0 1 2 3 4 5 6 7 8 9 10 100 101 clean
 
