@@ -1,5 +1,153 @@
 # 0x04. C - More functions, more nested loops
 
+## Learning Objectives
+- [What are nested loops and how to use them?](#nested-loops)
+- [What is a function and how do you use functions?](#functions)
+- [What is the difference between a declaration and a definition of a function?](#function-declaration-and-definition)
+- [What is a prototype?](#function-prototype)
+- [Scope of variables](#scope-of-variables)
+- [What are the `gcc` flags `-Wall -Werror -pedantic -Wextra`](#gcc-flags)
+- [What are header files and how to to use them with `#include`](#header-files)
+
+
+### Nested loops
+Nested loops are loops that are placed inside another loop. This means that the inner loop is executed multiple times for each iteration of the outer loop. Nested loops are used when we need to perform a repetitive action that requires more than one level of iteration.
+```c
+for (int i = 0; i < 3; i++) {
+  for (int j = 0; j < 4; j++) {
+    printf("%d,%d", i, j);
+  }
+  printf("\n");
+}
+```
+In this example, we have an outer loop that iterates 3 times, and an inner loop that iterates 4 times for each outer loop iteration. The printf statement is executed 12 times, resulting in output:
+```c
+0,0 0,1 0,2 0,3
+1,0 1,1 1,2 1,3
+2,0 2,1 2,2 2,3
+```
+
+### Functions
+A function is a block of code that performs a specific task. Functions are used to organize code, make it more modular, and easier to debug. They are also used to avoid repeating code and improve code readability.
+```c
+int sum(int a, int b) {
+  return a + b;
+}
+```
+In this example, we have defined a function called `sum` that takes two integer arguments `a` and `b`, and returns their sum.
+
+To use a function, we need to call it from another part of our program:
+```c
+int result = sum(3, 4);
+printf("%d", result);
+```
+In this example, we call the `sum` function with arguments `3` and `4`. The result is then stored in the `result` variable, which is then printed.
+
+### Function declaration and definition
+- **Function declaration**:
+A function declaration tells the compiler about the function name, return type, and parameters. It does not contain the function body.
+The actual body of the function can be defined separately.
+```c
+int sum(int a, int b);
+```
+- **Function definition**: A function definition includes the function body, and provides a complete implementation of the function.
+```c
+int sum(int a, int b) {
+  return a + b;
+}
+```
+### Function prototype
+A function prototype is a declaration of a function that tells the compiler about the function name, return type, and parameters. It is used to inform the compiler about the function before the actual function definition is encountered.
+```c
+int sum(int a, int b);
+```
+### Scope of variables
+The scope of a variable determines where the variable can be accessed in a program. A variable's scope is defined by where it is declared.
+
+- **Global variables**: A variable declared outside of any function has a global scope, which means it can be accessed anywhere in the program.
+
+```c
+int x; // x has a global scope
+
+void myFunction() {
+  x = 10; // x can be accessed here
+}
+
+int main() {
+  printf("%d", x); // x can be accessed here
+}
+```
+
+- **Local variables**: A variable declared inside a function has a local scope, which means it can only be accessed within the function it is declared in.
+```c
+void myFunction() {
+  int x = 10; // x has a local scope
+}
+```
+
+### `gcc` flags
+GCC (GNU Compiler Collection) is a collection of compilers and libraries for programming languages. When compiling C code with GCC, we can use various flags to enable specific features or set certain options.
+
+**Here are the explanations of some commonly used GCC flags:**
+
+- `Wall`: Enable all warnings about questionable code.
+- `Werror`: Treat all warnings as errors, which means the compiler will stop when encountering a warning.
+- `pedantic`: Issue all the warnings demanded by strict ISO C.
+- `Wextra`: Enable some extra warning flags that are not enabled by `-Wall`.
+- `std=gnu89`: Set the C language standard to use, in this case, the GNU C89 standard.
+
+### Header files
+Header files are files that contain declarations of functions, variables, macros, and other constructs that can be used in a program. They are typically included in source code files using the `#include` preprocessor directive.
+
+Header files are used to avoid repeating code in multiple source files. For example, if you have a function that is used in multiple source files, you can declare the function in a header file and include the header file in each source file that uses the function.
+
+**Here is an example of using a header file:**
+```c
+// Declare the function in a header file
+// myheader.h
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
+void my_function();
+
+#endif
+
+// Include the header file in a source file
+// main.c
+#include "myheader.h"
+
+int main() {
+    my_function();
+    return 0;
+}
+
+// Define the function in another source file
+// myfunctions.c
+#include "myheader.h"
+
+void my_function() {
+    // function body
+}
+```
+In this example: 
+- The header file `myheader.h` contains the declaration of the function `my_function()`.
+- The source file `main.c` includes the header file and uses the function.
+- The function is defined in another source file `myfunctions.c`, which also includes the header file.
+
+This way, the function can be used in multiple source files without having to redefine it in each file.
+
+To compile the program with multiple source files:
+```bash
+gcc -Wall -Werror -pedantic -Wextra -std=gnu89 -I. main.c myfunctions.c -o my_program
+```
+**Note:** This command assumes that the header file and source files are in the same directory.
+if the header file is in a different directory, you can use the `-I` flag to specify the directory where the header file is located.
+
+
+
+
+
+
 ## Resources
 
 - [Nested while loops](https://www.youtube.com/watch?v=Z3iGeQ1gIss)                            
