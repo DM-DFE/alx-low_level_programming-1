@@ -2,14 +2,13 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror -pedantic -std=c89
 TESTDIR=tests
 
-OK_COLOR="\x1b[32;01m"
-NO_COLOR="\x1b[0m"
+# Define variables for colors
+PURPLE = \033[1;35m
+NO_COLOR = \033[0m
+GREEN = \033[0;32m
+RED = \033[0;31m
 
-GREEN="\033[0;32m"
-RED="\033[0;31m"
-PURPLE="\033[0;35m"
-
-OK=$(OK_COLOR)"\t\t[OK]"$(NO_COLOR)
+OK=$(RED)"\t\t[OK]"$(NO_COLOR)
 FAIL=$(RED)"\t\t[FAIL]"$(NO_COLOR)
 
 .PHONY: all 0 1 2 3 4 5 6 7 8 9 10 100 101 clean
