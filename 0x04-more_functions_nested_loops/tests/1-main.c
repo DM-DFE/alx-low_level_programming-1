@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <ctype.h>
 
+/*
+ * test_isdigit - test the _isdigit function
+ * @c: value to be checked
+ * Return: void
+ */
 void test_isdigit(int c)
 {
 	printf("%c is %s\t| ", c, isdigit(c) ? "digit" : "not digit");
@@ -9,6 +14,10 @@ void test_isdigit(int c)
 	printf("[%s]\n", isdigit(c) == _isdigit(c) ? "OK" : "KO");
 }
 
+/**
+ * main - entry point
+ * Return: 0
+ */
 int main(void)
 {
 	/* Tests for _isdigit */
