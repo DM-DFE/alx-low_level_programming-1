@@ -2,8 +2,8 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror -pedantic -std=c89
 TESTDIR=tests
 
-OK_COLOR=\x1b[32;01m
-NO_COLOR=\x1b[0m
+OK_COLOR="\x1b[32;01m"
+NO_COLOR="\x1b[0m"
 
 GREEN="\033[0;32m"
 RED="\033[0;31m"
