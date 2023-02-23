@@ -3,7 +3,11 @@
 #include <stdio.h>
 #include <ctype.h>
 
-
+/**
+ * test_isupper - A funciton to test _isupper
+ * @c: value to be checked
+ * Return: void
+ */
 void test_isupper(int c)
 {
 	printf("%c is %s\t| ", c, isupper(c) ? "upper" : "not upper");
@@ -11,7 +15,10 @@ void test_isupper(int c)
 	printf("[%s]\n", isupper(c) == _isupper(c) ? "OK" : "KO");
 }
 
-
+/**
+ * main - entry point
+ * Return: 0
+ */
 int main(void)
 {
 	/* Tests for _isupper */
