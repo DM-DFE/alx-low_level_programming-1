@@ -158,7 +158,7 @@ if the header file is in a different directory, you can use the `-I` flag to spe
 
 ## Tasks
 
-- All `*-main.c` files will be located in the [main](./main) directory
+- All `*-main.c` files will be located in the [tests](./tests) directory
 - We will be using function prototypes that will be included in our header file called, [main.h](./main.h).
 
 ---
