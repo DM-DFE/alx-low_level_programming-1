@@ -17,5 +17,5 @@ void print_triangle(int size)
 			_putchar('#');
 		_putchar('\n');
 	}
-	_putchar('\n');
+	(size <= 0) ? _putchar('\n') : 0;
 }
