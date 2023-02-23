@@ -8,7 +8,7 @@ NO_COLOR = \033[0m
 GREEN = \033[0;32m
 RED = \033[0;31m
 
-OK=$(RED)[OK]$(NO_COLOR)
+OK=$(GREEN)[OK]$(NO_COLOR)
 FAIL=$(RED)[FAIL]$(NO_COLOR)
 
 .PHONY: all 0 1 2 3 4 5 6 7 8 9 10 100 101 clean
@@ -19,33 +19,33 @@ all:
 betty:
 	@echo "\n$(PURPLE)Running betty-style...\n$(NO_COLOR)"
 	@echo -n "main.h: "
-	@betty main.h | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty main.h | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "0-isupper.c: "
-	@betty 0-isupper.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 0-isupper.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "1-isdigit.c: "
-	@betty 1-isdigit.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 1-isdigit.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "2-mul.c: "
-	@betty 2-mul.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 2-mul.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "3-print_numbers.c: "
-	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo $(OK);else echo ;$(FAIL) fi
+	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo ;"$(FAIL)" fi
 	@echo -n "4-print_most_numbers.c: "
-	@betty 4-print_most_numbers.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 4-print_most_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "5-more_numbers.c: "
-	@betty 5-more_numbers.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 5-more_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "6-print_line.c: "
-	@betty 6-print_line.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 6-print_line.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "7-print_diagonal.c: "
-	@betty 7-print_diagonal.c | if [ $$? -eq 0 ]; then echo $(OK);else echo ;$(FAIL) fi
+	@betty 7-print_diagonal.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo ;"$(FAIL)" fi
 	@echo -n "8-print_square.c: "
-	@betty 8-print_square.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 8-print_square.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "9-fizz_buzz.c: "
-	@betty 9-fizz_buzz.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 9-fizz_buzz.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "10-print_triangle.c: "
-	@betty 10-print_triangle.c | if [ $$? -eq 0 ]; then echo $(OK);else echo ;$(FAIL) fi
+	@betty 10-print_triangle.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo ;"$(FAIL)" fi
 	@echo -n "100-prime_factor.c: "
-	@betty 100-prime_factor.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 100-prime_factor.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "101-print_number.c: "
-	@betty 101-print_number.c | if [ $$? -eq 0 ]; then echo $(OK); else echo $(FAIL); fi
+	@betty 101-print_number.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo "\nDone."
 
 0:
