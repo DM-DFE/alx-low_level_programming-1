@@ -8,7 +8,7 @@ all:
 	@echo "Usage: make [task number]"
 
 betty:
-	@echo "Running betty-style..."
+	@echo "\nRunning betty-style...\n"
 	@echo -n "main.h: "
 	@betty main.h | if [ $$? -eq 0 ]; then echo "OK"; else echo "FAIL"; fi
 	@echo -n "0-isupper.c: "
