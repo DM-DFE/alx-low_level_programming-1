@@ -8,8 +8,8 @@ NO_COLOR = \033[0m
 GREEN = \033[0;32m
 RED = \033[0;31m
 
-OK=$(GREEN)[OK]$(NO_COLOR)
-FAIL=$(RED)[FAIL]$(NO_COLOR)
+OK=$(GREEN)\t\t[OK]$(NO_COLOR)
+FAIL=$(RED)\t\t[FAIL]$(NO_COLOR)
 
 .PHONY: all 0 1 2 3 4 5 6 7 8 9 10 100 101 clean
 
@@ -27,7 +27,7 @@ betty:
 	@echo -n "2-mul.c: "
 	@betty 2-mul.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "3-print_numbers.c: "
-	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo ;"$(FAIL)" fi
+	@betty 3-print_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)";else echo "$(FAIL)" fi
 	@echo -n "4-print_most_numbers.c: "
 	@betty 4-print_most_numbers.c | if [ $$? -eq 0 ]; then echo "$(OK)"; else echo "$(FAIL)"; fi
 	@echo -n "5-more_numbers.c: "
