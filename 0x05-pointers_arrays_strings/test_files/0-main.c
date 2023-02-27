@@ -6,11 +6,27 @@
  */
 int main(void)
 {
-    int n;
+	int n;
 
-    n = 402;
-    printf("n=%d\n", n);
-    reset_to_98(&n);
-    printf("n=%d\n", n);
-    return (0);
+	n = 402;
+	printf("n=%d\n", n);
+	reset_to_98(&n);
+	printf("n=%d\n", n);
+
+	n = -4096;
+	printf("%d\n", n);
+	reset_to_98(&n);
+	printf("%d\n", n);
+
+	n = INT_MAX;
+	printf("%d\n", n);
+	reset_to_98(&n);
+	printf("%d\n", n);
+
+	n = INT_MIN;
+	printf("%d\n", n);
+	reset_to_98(&n);
+	printf("%d\n", n);
+
+	return (0);
 }
