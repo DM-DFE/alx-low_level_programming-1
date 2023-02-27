@@ -41,7 +41,6 @@ int main(void)
 	int sum = 0;
 	char *password = generatePassword(&sum);
 
-	int diff = CHECKSUM - sum;
 	char *different = malloc(2);
 	different[0] = CHECKSUM - sum;
 	different[1] = '\0';
