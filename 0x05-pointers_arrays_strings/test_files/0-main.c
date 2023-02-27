@@ -2,8 +2,8 @@
 
 /**
  * main - check the function reset_to_98
- * return: 0 (success)
- */
+ * Return: Always 0
+*/
 int main(void)
 {
 	int n;
