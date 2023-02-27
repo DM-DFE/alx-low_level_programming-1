@@ -41,14 +41,14 @@ int main(void)
 	int sum = 0;
 	char *password = generatePassword(&sum);
 
-	char *different = malloc(2);
-	different[0] = CHECKSUM - sum;
-	different[1] = '\0';
-	strcat(password, different);
+	char *difference = malloc(2);
+	difference[0] = CHECKSUM - sum;
+	difference[1] = '\0';
+	strcat(password, difference);
 
 	printf("%s", password);
 
 	free(password);
-	free(different);
+	free(difference);
 	return (0);
 }
