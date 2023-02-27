@@ -46,7 +46,7 @@ int main(void)
 	different[1] = '\0';
 	strcat(password, different);
 
-	printf("Password: %s\n", password);
+	printf("%s", password);
 
 	free(password);
 	free(different);
