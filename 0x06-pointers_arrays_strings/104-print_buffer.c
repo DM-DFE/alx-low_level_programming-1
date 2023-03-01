@@ -7,21 +7,34 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k;
+	int offset, byte_index, char_index;
 
-	for (i = 0; i < size; i += 10)
+	for (offset = 0; offset < size; offset += 10)
 	{
-		printf("%08x: ", i);
-		for (j = 0; j < 10; j++)
+		printf("%08x: ", offset);
+		for (byte_index = 0; byte_index < 10; byte_index++)
 		{
-			(i + j < size) ? printf("%02x", b[i + j]) : printf("  ");
-			(j % 2) ? printf(" ") : 0;
+			if (offset + byte_index >= size)
+				printf("  ");
+			else
+				printf("%02x", b[offset + byte_index]);
+			if (byte_index % 2 && byte_index)
+				printf(" ");
 		}
-		printf(" ");
-		for (k = 0; k < 10; k++)
-			(i + k < size) ? printf("%c", (b[i + k] >= 32 && b[i + k] <= 126) ?
-				b[i + k] : '.') : 0;
-		printf("\n");
+		for (char_index = 0; char_index < 10; char_index++)
+		{
+			if (offset + char_index < size)
+			{
+				if (b[offset + char_index] >= 32 && b[offset + char_index] <= 126)
+					printf("%c", b[offset + char_index]);
+				else
+					printf(".");
+			}
+			if (offset >= size)
+				continue;
+			printf("\n");
+		}
 	}
-	/*	(size <= 0) ? printf("\n") : 0; */
+	if (size <= 0)
+		printf("\n");
 }
