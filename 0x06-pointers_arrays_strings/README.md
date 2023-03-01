@@ -1,7 +1,7 @@
 # 0x06. C - Pointers, arrays and strings.
 
 <p align="center">
-[//]: # (  <img src="https://i.postimg.cc/dtJkkJV9/pointers.jpg" width="400">)
+    <img src="https://i.postimg.cc/dtJkkJV9/pointers.jpg" width="650">
 </p>
 
 ## Resources
@@ -22,7 +22,7 @@
 <details>
 <summary><a href="./0-strcat.c">0. strcat</a></summary><br>
 
-<img src="./images/0-strcat.png" width="128"/>
+<img src="./images/0-strcat.png"/>
 
 > [0-main.c](./test_files/0-main.c) for testing
 ```c
@@ -71,7 +71,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-strcat.c -o 0-strcat
 <details>
 <summary><a href="./1-strncat.c">1. strncat</a></summary><br>
 
+<img src="./images/1-strncat.png"/>
 
+    
+    
 #### `[1-main.c](./test_files/1-main.c)` for testing
 ```c
 #include "main.h"
@@ -125,6 +128,8 @@ Hello WWorld!
 
 <details>
 <summary><a href="./2-strncpy.c">2. strncpy</a></summary><br>
+    
+<img src="./images/2-strncpy.png"/>
 
 #### main.c
 ```c
@@ -205,6 +210,8 @@ First, solve the problem. Then, write the code
 <details>
 <summary><a href="./3-strcmp.c">3. strcmp</a></summary><br>
 
+<img src="./images/3-strcmp.png"/>
+    
 ### main.c
 ```c
 #include "main.h"
@@ -247,6 +254,9 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-strcmp.c -o 3-strcmp
 <details>
 <summary><a href="./4-rev_array.c">4. I am a kind of paranoid in reverse. I suspect people of plotting to make me happy</a></summary><br>
 
+<img src="./images/4-rev_array.png"/>
+    
+    
 #### main.c
 ```c
 #include "main.h"
@@ -311,6 +321,9 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 4-rev_array.c -o 4-rev_a
 
 <details>
 <summary><a href="./5-string_toupper.c">5. Always look up</a></summary><br>
+    
+<img src="./images/5-string_toupper.png"/>
+    
 
 #### main.c
 ```c
@@ -353,6 +366,8 @@ LOOK UP!
 <details>
 <summary><a href="./6-cap_string.c">6. Expect the best. Prepare for the worst. Capitalize on what comes</a></summary><br>
 
+<img src="./images/6-cap_string.png"/>
+    
 #### main.c
 ```c
 #include "main.h"
@@ -396,6 +411,8 @@ Hello World! Hello-World 0123456hello World Hello World.Hello World
 <details>
 <summary><a href="./7-leet.c">7. Mozart composed his music not for the elite, but for everybody</a></summary><br>
 
+<img src="./images/7-leet.png"/>
+    
 #### main.c
 ```c
 #include "main.h"
@@ -436,6 +453,9 @@ Expect the best. Prepare for the worst. Capitalize on what comes.
 <details>
 <summary><a href="./100-rot13.c">8. rot13</a></summary><br>
 
+<img src="./images/100-rot13.png"/>
+
+    
 #### main.c
 ```c
 #include "main.h"
@@ -497,6 +517,9 @@ EBG13 ("ebgngr ol 13 cynprf", fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fh
 <details>
 <summary><a href="./101-print_number.c">9. Numbers have life; they're not just symbols on paper</a></summary><br>
 
+<img src="./images/101-print_number.png"/>
+
+    
 #### main.c
 ```c
 #include "main.h"
@@ -543,8 +566,11 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c 101-main.c 101-print_n
 ---
 
 <details>
-<summary><a href="./102-magic.c"></a></summary><br>
+<summary><a href="./102-magic.c">10. A dream doesn't become reality through magic; it takes sweat, determination and hard work</a></summary><br>
 
+<img src="./images/102-magic.png"/>
+
+    
 #### main.c
 ```c
 #include <stdio.h>
@@ -588,6 +614,8 @@ a[2] = 98
 
 <details>
 <summary><a href="./103-infinite_add.c">11. It is the addition of strangeness to beauty that constitutes the romantic character in art</a></summary><br>
+
+<img src="./images/103-infinite_add.png"/>
 
 
 #### main.c
@@ -675,6 +703,9 @@ Error
 <details>
 <summary><a href="./104-print_buffer.c">12. Noise is a buffer, more effective than cubicles or booth walls</a></summary><br>
 
+<img src="./images/104-print_buffer.png"/>
+
+    
 #### main.c
 ```c
 #include "main.h"
