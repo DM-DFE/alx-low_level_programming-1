@@ -36,7 +36,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int i, j, k, sum, carry = 0;
 
 	/* if the result buffer is too small, return 0 */
-	if (len1 + len2 > size_r)
+	if (len1 + len2 + 1 > size_r)
 		return (0);
 
 	/* Perform addition */
