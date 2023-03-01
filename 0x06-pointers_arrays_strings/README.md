@@ -20,168 +20,704 @@
 ---
 
 <details>
-<summary><a href="./0-reset_to_98.c">0. 98 Battery st.</a></summary><br>
+<summary><a href="./0-strcat.c">0. strcat</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/MTRnHM0y/image.png' border='0' alt='image'/></a>
+<img src="./images/0-strcat.png" width="128"/>
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/0-main.c 0-reset_to_98.c -o 0-98`
+> [0-main.c](./test_files/0-main.c) for testing
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s1[98] = "Hello ";
+    char s2[] = "World!\n";
+    char *ptr;
+
+    printf("%s\n", s1);
+    printf("%s", s2);
+    ptr = _strcat(s1, s2);
+    printf("%s", s1);
+    printf("%s", s2);
+    printf("%s", ptr);
+    return (0);
+}
+```
+
+> Expected ouput:
+```
+Hello 
+World!
+Hello World!
+World!
+Hello World!
+```
+
+> compiled with:
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-strcat.c -o 0-strcat
+```
 
 </details>
+
+---
 
 <details>
-<summary><a href="./1-swap.c">1. Don't swap horses in crossing a stream</a></summary><br>
+<summary><a href="./1-strncat.c">1. strncat</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/tggtCWJG/image.png' border='0' alt='image'/></a>
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/1-main.c 1-swap.c -o 1-swap`
+#### `[1-main.c](./test_files/1-main.c)` for testing
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s1[98] = "Hello ";
+    char s2[] = "World!\n";
+    char *ptr;
+
+    printf("%s\n", s1);
+    printf("%s", s2);
+    ptr = _strncat(s1, s2, 1);
+    printf("%s\n", s1);
+    printf("%s", s2);
+    printf("%s\n", ptr);
+    ptr = _strncat(s1, s2, 1024);
+    printf("%s", s1);
+    printf("%s", s2);
+    printf("%s", ptr);
+    return (0);
+}
+```
+
+#### Compiled with:
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-strncat.c -o 1-strncat
+```
+
+#### Expected ouput:
+```
+Hello 
+World!
+Hello W
+World!
+Hello W
+Hello WWorld!
+World!
+Hello WWorld!
+```
 
 </details>
+
+---
 
 <details>
-<summary><a href="./2-strlen.c">2. This report, by its very length, defends itself against the rist of being read</a></summary><br>
+<summary><a href="./2-strncpy.c">2. strncpy</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/Rh2YDDrS/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/2-main.c 2-strlen.c -o 2-strlen`
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s1[98];
+    char *ptr;
+    int i;
+
+    for (i = 0; i < 98 - 1; i++)
+    {
+        s1[i] = '*';
+    }
+    s1[i] = '\0';
+    printf("%s\n", s1);
+    ptr = _strncpy(s1, "First, solve the problem. Then, write the code\n", 5);
+    printf("%s\n", s1);
+    printf("%s\n", ptr);
+    ptr = _strncpy(s1, "First, solve the problem. Then, write the code\n", 90);
+    printf("%s", s1);
+    printf("%s", ptr);
+    for (i = 0; i < 98; i++)
+    {
+        if (i % 10)
+        {
+            printf(" ");
+        }
+        if (!(i % 10) && i)
+        {
+            printf("\n");
+        }
+        printf("0x%02x", s1[i]);
+    }
+    printf("\n");
+    return (0);
+}
+```
+
+#### Compiled with
+
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-strncpy.c -o 2-strncpy
+```
+
+#### Expected output
+
+```
+*************************************************************************************************
+First********************************************************************************************
+First********************************************************************************************
+First, solve the problem. Then, write the code
+First, solve the problem. Then, write the code
+0x46 0x69 0x72 0x73 0x74 0x2c 0x20 0x73 0x6f 0x6c
+0x76 0x65 0x20 0x74 0x68 0x65 0x20 0x70 0x72 0x6f
+0x62 0x6c 0x65 0x6d 0x2e 0x20 0x54 0x68 0x65 0x6e
+0x2c 0x20 0x77 0x72 0x69 0x74 0x65 0x20 0x74 0x68
+0x65 0x20 0x63 0x6f 0x64 0x65 0x0a 0x00 0x00 0x00
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
+0x2a 0x2a 0x2a 0x2a 0x2a 0x2a 0x2a 0x00
+```
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./3-puts.c">3. I do not fear computers. I fear the lack of them</a></summary><br>
+<summary><a href="./3-strcmp.c">3. strcmp</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/m2m5Fkp3/image.png' border='0' alt='image'/></a>
+### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c main/3-main.c 3-puts.c -o 3-puts`
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s1[] = "Hello";
+    char s2[] = "World!";
+
+    printf("%d\n", _strcmp(s1, s2));
+    printf("%d\n", _strcmp(s2, s1));
+    printf("%d\n", _strcmp(s1, s1));
+    return (0);
+}
+```
+
+#### Compiled with:
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-strcmp.c -o 3-strcmp
+```
+
+#### Expected output:
+```
+-15
+15
+0
+```
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./4-print_rev.c">4. I do not fear computers. I fear the lack of them</a></summary><br>
+<summary><a href="./4-rev_array.c">4. I am a kind of paranoid in reverse. I suspect people of plotting to make me happy</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/t4m3bGyJ/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c main/4-main.c 4-print_rev.c -o 4-print_rev`
+/**
+ * main - check the code
+ * @a: an array of integers
+ * @n: the number of elements to swap
+ *
+ * Return: nothing.
+ */
+void print_array(int *a, int n)
+{
+    int i;
+
+    i = 0;
+    while (i < n)
+    {
+        if (i != 0)
+        {
+            printf(", ");
+        }
+        printf("%d", a[i]);
+        i++;
+    }
+    printf("\n");
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337};
+
+    print_array(a, sizeof(a) / sizeof(int));
+    reverse_array(a, sizeof(a) / sizeof(int));
+    print_array(a, sizeof(a) / sizeof(int));
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 4-rev_array.c -o 4-rev_array
+```
+
+#### Expected output
+```
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337
+1337, 1024, 98, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+```
+
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./5-rev_string.c">5. A good engineer thinks in reverse and asks himself about the stylistic consequences of the components and systems he proposes</a></summary><br>
+<summary><a href="./5-string_toupper.c">5. Always look up</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/SxsJZ01W/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Below is the assembly code of the `rev_string` function with comments.
-   ```sh
-   0x00000000000011d7 <+0>:     endbr64                         ; NOP instruction
-   0x00000000000011db <+4>:     push   rbp                      ; store current base pointer at the top of the stack
-   0x00000000000011dc <+5>:     mov    rbp,rsp                  ; make current stack pointer to be a base pointer
-   0x00000000000011df <+8>:     mov    QWORD PTR [rbp-0x18],rdi ; move arg1 our string from main func to the stack [$rbp-0x18]
-   0x00000000000011e3 <+12>:    mov    DWORD PTR [rbp-0x8],0x0  ; start of first for loop that gets string length (set var l = 0) l = [$rbp-0x8]
-   0x00000000000011ea <+19>:    jmp    0x11f0 <rev_string+25>   ; jmp to --> {0x11f0} address
-   0x00000000000011ec <+21>:    add    DWORD PTR [rbp-0x8],0x1  ; increament var l [$rbp-0x8] by 1
-   0x00000000000011f0 <+25>:    mov    eax,DWORD PTR [rbp-0x8]  ; move value of var l [$rbp-0x8] to register [eax]
-   0x00000000000011f3 <+28>:    movsxd rdx,eax                  ; move value of var l [$rbp-0x8] from 32bit [eax] reg to 64bit [rdx] reg
-   0x00000000000011f6 <+31>:    mov    rax,QWORD PTR [rbp-0x18] ; move string to a 64bit reg [rax]
-   0x00000000000011fa <+35>:    add    rax,rdx                  ; increament [rax] by the value of [rdx] == (rax[l++])
-   0x00000000000011fd <+38>:    movzx  eax,BYTE PTR [rax]       ; move current character in array being pointed to [eax]
-   0x0000000000001200 <+41>:    test   al,al                    ; ensures the value in [al] isn't negative
-   0x0000000000001202 <+43>:    jne    0x11ec <rev_string+21>   ; if test is not zero jumps back to --> {0x11ec} address end of first loop
-   0x0000000000001204 <+45>:    mov    DWORD PTR [rbp-0x4],0x0  ; start of second for loop that swapping characters (set var i = 0) i = [rbp-0x4]
-   0x000000000000120b <+52>:    jmp    0x1262 <rev_string+139>  ; jmp to --> {0x1262} address to set up (i < l / 2)
-   0x000000000000120d <+54>:    mov    eax,DWORD PTR [rbp-0x4]  ; move value at [rbp-0x4] to [eax]
-   0x0000000000001210 <+57>:    movsxd rdx,eax                  ; move value at [eax] from 32bit reg to 64 bit reg [rdx]
-   0x0000000000001213 <+60>:    mov    rax,QWORD PTR [rbp-0x18] ; move our string to register [rax]
-   0x0000000000001217 <+64>:    add    rax,rdx                  ; increament [rax] by the value of [rdx] == (rax[i++])
-   0x000000000000121a <+67>:    movzx  eax,BYTE PTR [rax]       ; mov current character in array being pointed to [eax] || prepping to swap starts here
-   0x000000000000121d <+70>:    mov    BYTE PTR [rbp-0x9],al    ; store character value to the stack at [$rbp-0x9] == ch = s[i]
-   0x0000000000001220 <+73>:    mov    eax,DWORD PTR [rbp-0x8]  ; move string length to [eax]
-   0x0000000000001223 <+76>:    sub    eax,DWORD PTR [rbp-0x4]  ; subract value in [rbp-0x4] from [eax] and store in [eax]
-   0x0000000000001226 <+79>:    cdqe                            ; sign-extends a DWORD (32-bit value) in the [eax] reg to a QWORD (64-bit value) [rax] reg || swap of first value starts here
-   0x0000000000001228 <+81>:    lea    rdx,[rax-0x1]            ; loads the value at [rax] minus 1 to [rdx]
-   0x000000000000122c <+85>:    mov    rax,QWORD PTR [rbp-0x18] ; moves the string to [rax]
-   0x0000000000001230 <+89>:    add    rax,rdx                  ; increaments [rax] by the value in [rdx] (rax[rdx++])
-   0x0000000000001233 <+92>:    mov    edx,DWORD PTR [rbp-0x4]  ; moves value in [$rbp-0x4] to [edx]
-   0x0000000000001236 <+95>:    movsxd rcx,edx                  ; moves a DWORD (32-bit value) in [edx] reg to a QWORD (64-bit value) [rcx] reg
-   0x0000000000001239 <+98>:    mov    rdx,QWORD PTR [rbp-0x18] ; moves the string to [rdx]
-   0x000000000000123d <+102>:   add    rdx,rcx                  ; increaments [rdx] by the value in [rcx] (rdx[rcx++])
-   0x0000000000001240 <+105>:   movzx  eax,BYTE PTR [rax]       ; moves char value at [rax] to [eax]
-   0x0000000000001243 <+108>:   mov    BYTE PTR [rdx],al        ; moves value at [al] to [rdx]
-   0x0000000000001245 <+110>:   mov    eax,DWORD PTR [rbp-0x8]  ; moves value at [$rbp-0x8] to [eax]
-   0x0000000000001248 <+113>:   sub    eax,DWORD PTR [rbp-0x4]  ; subtracts value at [$rbp-0x8] from [eax]
-   0x000000000000124b <+116>:   cdqe                            ; sign-extends a DWORD (32-bit value) in the [eax] reg to a QWORD (64-bit value) [rax] reg || swap of second value starts here
-   0x000000000000124d <+118>:   lea    rdx,[rax-0x1]            ; loads the value at [rax] minus 1 to [rdx]
-   0x0000000000001251 <+122>:   mov    rax,QWORD PTR [rbp-0x18] ; moves the string to [rax]
-   0x0000000000001255 <+126>:   add    rdx,rax                  ; increaments [rdx] by the value in [rax] (rdx[rax++])
-   0x0000000000001258 <+129>:   movzx  eax,BYTE PTR [rbp-0x9]   ; moves value at [$rbp-0x9] to [eax]
-   0x000000000000125c <+133>:   mov    BYTE PTR [rdx],al        ; moves value at [al] to [rdx]
-   0x000000000000125e <+135>:   add    DWORD PTR [rbp-0x4],0x1  ; increament value [$rbp-0x4] by 1 == ++i
-   0x0000000000001262 <+139>:   mov    eax,DWORD PTR [rbp-0x8]  ; [rbp-0x8] string length || moves the string length to eax
-   0x0000000000001265 <+142>:   mov    edx,eax                  ; move string length to [edx]
-   0x0000000000001267 <+144>:   shr    edx,0x1f                 ; shift string length == 9 to the right by 31 times == 0
-   0x000000000000126a <+147>:   add    eax,edx                  ; add value [edx] == 0 to [eax]
-   0x000000000000126c <+149>:   sar    eax,1                    ; shift [eax] value == 9 to the right by 1 time
-   0x000000000000126e <+151>:   cmp    DWORD PTR [rbp-0x4],eax  ; compare [eax] and value at [rbp-0x4]
-   0x0000000000001271 <+154>:   jl     0x120d <rev_string+54>   ; if its less jump to --> {0x120d} || end loop of swapping
-   0x0000000000001273 <+156>:   nop                             ; nop
-   0x0000000000001274 <+157>:   nop                             ; nop
-   0x0000000000001275 <+158>:   pop    rbp                      ; get base pointer from the top of the stack
-   0x0000000000001276 <+159>:   ret                             ; return to address [rip]
-   ```
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char str[] = "Look up!\n";
+    char *ptr;
 
-- Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/5-main.c 5-rev_string.c -o 5-rev_string`
+    ptr = string_toupper(str);
+    printf("%s", ptr);
+    printf("%s", str);
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 5-string_toupper.c -o 5-string_toupper
+```
+
+#### Expected output
+```
+LOOK UP!
+LOOK UP!
+```
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./6-puts2.c">6. Half the lies they tell about me aren't true</a></summary><br>
+<summary><a href="./6-cap_string.c">6. Expect the best. Prepare for the worst. Capitalize on what comes</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/XJsfCQkQ/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c main/6-main.c 6-puts2.c -o 6-puts2`
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
+    char *ptr;
+
+    ptr = cap_string(str);
+    printf("%s", ptr);
+    printf("%s", str);
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 6-main.c 6-cap_string.c -o 6-cap
+```
+
+#### Expected output
+```
+Expect The Best. Prepare For The Worst. Capitalize On What Comes.
+Hello World! Hello-World 0123456hello World Hello World.Hello World
+Expect The Best. Prepare For The Worst. Capitalize On What Comes.
+Hello World! Hello-World 0123456hello World Hello World.Hello World
+```
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./7-puts_half.c">7. Winning is only half of it. Having fun is the other half</a></summary><br>
+<summary><a href="./7-leet.c">7. Mozart composed his music not for the elite, but for everybody</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/2SjCBrHY/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c main/7-main.c 7-puts_half.c -o 7-puts_half`
+/**
+ * main - check the code for
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
+    char *p;
+
+    p = leet(s);
+    printf("%s", p);
+    printf("%s", s);
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 7-main.c 7-leet.c -o 7-1337
+```
+
+#### Expected output
+```
+3xp3c7 7h3 b3s7. Pr3p4r3 f0r 7h3 w0rs7. C4pi741iz3 0n wh47 c0m3s.
+Expect the best. Prepare for the worst. Capitalize on what comes.
+```
 
 </details>
+
+---
 
 <details>
-<summary><a href="./8-print_array.c">8. Arrays are not pointers</a></summary><br>
+<summary><a href="./100-rot13.c">8. rot13</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/jdqkvtS3/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
 
-- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/8-main.c 8-print_array.c -o 8-print_array`
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char s[] = "ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n";
+    char *p;
+
+    p = rot13(s);
+    printf("%s", p);
+    printf("------------------------------------\n");
+    printf("%s", s);
+    printf("------------------------------------\n");
+    p = rot13(s);
+    printf("%s", p);
+    printf("------------------------------------\n");
+    printf("%s", s);
+    printf("------------------------------------\n");
+    p = rot13(s);
+    printf("%s", p);
+    printf("------------------------------------\n");
+    printf("%s", s);
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-rot13.c -o 100-rot13
+```
+
+#### Expected output
+```
+EBG13 ("ebgngr ol 13 cynprf", fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure.
+------------------------------------
+EBG13 ("ebgngr ol 13 cynprf", fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure.
+------------------------------------
+ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher.
+------------------------------------
+ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher.
+------------------------------------
+EBG13 ("ebgngr ol 13 cynprf", fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure.
+------------------------------------
+EBG13 ("ebgngr ol 13 cynprf", fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure.
+```
+
 
 </details>
+
+---
 
 <details>
-<summary><a href="./9-strcpy.c">9. strcpy</a></summary><br>
+<summary><a href="./101-print_number.c">9. Numbers have life; they're not just symbols on paper</a></summary><br>
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/tCyvgTcN/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include "main.h"
 
-- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main/9-main.c 9-strcpy.c -o 9-strcpy`
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    print_number(98);
+    _putchar('\n');
+    print_number(402);
+    _putchar('\n');
+    print_number(1024);
+    _putchar('\n');
+    print_number(0);
+    _putchar('\n');
+    print_number(-98);
+    _putchar('\n');
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c 101-main.c 101-print_number.c -o 101-print_numbers
+```
+
+#### Expected output
+```
+98
+402
+1024
+0
+-98
+```
+
 
 </details>
+
+
+---
 
 <details>
-<summary><a href="./100-atoi.c">10. Great leaders are willing to sacrifice the numbers to save the people. Poor leaders sacrifice the people to save the numbers</a></summary><br>
+<summary><a href="./102-magic.c"></a></summary><br>
 
-<a href='https://postimg.cc/1n3bJ6Mq' target='_blank'><img src='https://i.postimg.cc/j5HKq47Z/image.png' border='0' alt='image'/></a>
+#### main.c
+```c
+#include <stdio.h>
 
-- We will use the `-fsanitize=signed-integer-overflow` gcc flag to compile your code.
-- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -fsanitize=signed-integer-overflow main/100-main.c 100-atoi.c -o 100-atoi`
+int main(void)
+{
+  int n;
+  int a[5];
+  int *p;
+
+  a[2] = 1024;
+  p = &n;
+  /*
+   * write your line of code here...
+   * Remember:
+   * - you are not allowed to use a
+   * - you are not allowed to modify p
+   * - only one statement
+   * - you are not allowed to code anything else than this line of code
+   */
+  ;
+  /* ...so that this prints 98\n */
+  printf("a[2] = %d\n", a[2]);
+  return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 102-main.c 102-magic.c -o 102-magic
+```
+
+#### Expected output
+```
+a[2] = 98
+```
 
 </details>
 
+---
+
+<details>
+<summary><a href="./103-infinite_add.c">11. It is the addition of strangeness to beauty that constitutes the romantic character in art</a></summary><br>
 
 
-11. [Don't hate the hacker, hate the code](./101-keygen.c) : A C function program that generates random valid passwords for the program [101-crackme](https://github.com/holbertonschool/0x04.c)
-	- You are allowed to use the standard library.
-	- You don’t have to pass the `betty-style` tests (you still need to pass the `betty-doc` tests)
-	- man `srand`, `rand`, `time`.
-	- `gdb` and `objdump` can help.
-	- Compile the code this way: `gcc -Wall -pedantic -Werror -Wextra 101-keygen.c -o 101-keygen`
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+        char *n = "1234567892434574367823574575678477685785645685876876774586734734563456453743756756784458";
+        char *m = "9034790663470697234682914569346259634958693246597324659762347956349265983465962349569346";
+        char r[100];
+        char r2[10];
+        char r3[11];
+        char *res;
+
+        res = infinite_add(n, m, r, 100);
+        if (res == 0)
+        {
+                printf("Error\n");
+        }
+        else
+        {
+                printf("%s + %s = %s\n", n, m, res);
+        }
+        n = "1234567890";
+        m = "1";
+        res = infinite_add(n, m, r2, 10);
+        if (res == 0)
+        {
+                printf("Error\n");
+        }
+        else
+        {
+                printf("%s + %s = %s\n", n, m, res);
+        }
+        n = "999999999";
+        m = "1";
+        res = infinite_add(n, m, r2, 10);
+        if (res == 0)
+        {
+                printf("Error\n");
+        }
+        else
+        {
+                printf("%s + %s = %s\n", n, m, res);
+        }
+        res = infinite_add(n, m, r3, 11);
+        if (res == 0)
+        {
+                printf("Error\n");
+        }
+        else
+        {
+                printf("%s + %s = %s\n", n, m, res);
+        }
+        return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 103-main.c 103-infinite_add.c -o 103-add
+```
+
+#### Expected output
+```
+1234567892434574367823574575678477685785645685876876774586734734563456453743756756784458 + 9034790663470697234682914569346259634958693246597324659762347956349265983465962349569346 = 10269358555905271602506489145024737320744338932474201434349082690912722437209719106353804
+Error
+Error
+999999999 + 1 = 1000000000
+```
+
+
+
+</details>
+
+---
+
+<details>
+<summary><a href="./104-print_buffer.c">12. Noise is a buffer, more effective than cubicles or booth walls</a></summary><br>
+
+#### main.c
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char buffer[] = "This is a string!\0And this is the rest of the #buffer :)\1\2\3\4\5\6\7#cisfun\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x20\x21\x34\x56#pointersarefun #infernumisfun\n";
+
+    printf("%s\n", buffer);
+    printf("---------------------------------\n");
+    print_buffer(buffer, sizeof(buffer));
+    return (0);
+}
+```
+
+#### Compiled with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 104-main.c 104-print_buffer.c -o 104-buffer
+```
+
+#### Expected output
+```
+This is a string!
+---------------------------------
+00000000: 5468 6973 2069 7320 6120 This is a 
+0000000a: 7374 7269 6e67 2100 416e string!.An
+00000014: 6420 7468 6973 2069 7320 d this is 
+0000001e: 7468 6520 7265 7374 206f the rest o
+00000028: 6620 7468 6520 2362 7566 f the #buf
+00000032: 6665 7220 3a29 0102 0304 fer :)....
+0000003c: 0506 0723 6369 7366 756e ...#cisfun
+00000046: 0a00 0000 0000 0000 0000 ..........
+00000050: 0000 0000 0000 0000 0000 ..........
+0000005a: 2021 3456 2370 6f69 6e74  !4V#point
+00000064: 6572 7361 7265 6675 6e20 ersarefun 
+0000006e: 2369 6e66 6572 6e75 6d69 #infernumi
+00000078: 7366 756e 0a00           sfun..
+```
+
+</details>
