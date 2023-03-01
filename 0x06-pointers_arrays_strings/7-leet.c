@@ -22,8 +22,13 @@ char *leet(char *s)
 	char *leet = "43071";
 
 	for (i = 0; s[i]; i++)
+	{
 		for (j = 0; letters[j]; j++)
-			(_toupper(s[i]) == letters[j]) ? s[i] = leet[j] : s[i];
+		{
+			if (_toupper(s[i]) == letters[j])
+				s[i] = leet[j];
+		}
+	}
 
 	return (s);
 }
