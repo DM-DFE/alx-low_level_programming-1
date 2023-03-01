@@ -23,5 +23,5 @@ void print_buffer(char *b, int size)
 				b[i + k] : '.') : 0;
 		printf("\n");
 	}
-	(size <= 0) ? printf("\n") : 0;
+	/*	(size <= 0) ? printf("\n") : 0; */
 }
