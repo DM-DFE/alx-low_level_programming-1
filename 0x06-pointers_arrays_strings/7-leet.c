@@ -18,12 +18,13 @@ static int _toupper(int c)
 char *leet(char *s)
 {
 	int i, j;
-	char *letters = "AEOTL";
-	char *leet = "43071";
+	char letters[] = "aAeEoOtTlL";
+	char numbers[] = "4433007711";
 
 	for (i = 0; s[i]; i++)
 		for (j = 0; letters[j]; j++)
-			(_toupper(s[i]) == letters[j]) ? s[i] = leet[j] : s[i];
+			if (s[i] == letters[j])
+				s[i] = numbers[j];
 
 	return (s);
 }
