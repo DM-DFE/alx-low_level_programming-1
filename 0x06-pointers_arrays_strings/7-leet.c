@@ -1,16 +1,6 @@
 #include "main.h"
 
 /**
- * _toupper - converts a lowercase letter to uppercase
- * @c: character to convert
- * Return: uppercase character
- */
-static int _toupper(int c)
-{
-	return ((c >= 'a' && c <= 'z') ? c - 32 : c);
-}
-
-/**
  * leet - encodes a string into 1337
  * @s: string to encode
  * Return: pointer to encoded string
@@ -18,16 +8,14 @@ static int _toupper(int c)
 char *leet(char *s)
 {
 	int i, j;
-	char *letters = "AEOTL";
-	char *leet = "43071";
+	char *decoding = "aAeEoOtTlL";
+	char *encoding = "4433007711";
 
 	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; letters[j]; j++)
-		{
-			if (_toupper(s[i]) == letters[j])
-				s[i] = leet[j];
-		}
+		for (j = 0; decoding[j]; j++)
+			if (s[i] == decoding[j])
+				s[i] = encoding[j];
 	}
 
 	return (s);
