@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
 
+# NOTE: in task 5 (long long int) works only when c99 is enabled
 # check if libc6-dev-i386 is installed
 #if not, install it
 #sudo apt-get install libc6-dev-i386
@@ -24,7 +25,7 @@ all: 0 1 2 3 4 5 6 7 8
 	@if ./4-puts > expected_output/4-puts.out ; then echo "4-puts: PASS"; else echo "4-puts: FAIL"; fi
 
 5:
-	@$(CC) $(CFLAGS) 5-printf.c -o 5-printf
+	@$(CC) -Wall -Werror -Wextra -pedantic 5-printf.c -o 5-printf
 	@if ./5-printf > expected_output/5-printf.out ; then echo "5-printf: PASS"; else echo "5-printf: FAIL"; fi
 
 6:
