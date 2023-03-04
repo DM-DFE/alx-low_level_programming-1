@@ -32,12 +32,12 @@ all: 0 1 2 3 4 5 6 7 8
 	@$(CC) $(CFLAGS) -m32 6-size.c -o 6-size
 	@if ./6-size > expected_output/6-size.out ; then echo "6-size: PASS"; else echo "6-size: FAIL"; fi
 
-7:
-	@./7-intel
+100:
+	@./100-intel
 
-8:
+101:
 	@$(CC) $(CFLAGS) 101-quote.c -o 101-quote
-	@if ./101-quote > expected_output/101-quote.out ; then echo "101-quote: FAIL"; else echo "101-quote: PASS"; fi
+	@if ./101-quote 2> expected_output/101-quote.out ; then echo "101-quote: FAIL"; else echo "101-quote: PASS"; fi
 
 clean:
 	@$ rm -f c main.o main.s cisfun 4-puts 5-printf 6-size 101-quote
