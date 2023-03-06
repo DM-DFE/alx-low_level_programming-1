@@ -501,8 +501,33 @@ Bob Dylan, Bob Dylan
 <img src="./imgs/101-crackme_password.png" alt="101-crackme_password">
 
 ## How I cracked the password
+- Step 1: I ran the program with random inputs to see what the output was. (it was always `Access denied`)
+- Step 2: I opened the program in `gdb` to see what the program was doing.
+    - I used `info functions` to see what functions were in the program.
+    <img src="./imgs/101-crackme_1.png" alt="101-crackme_password_1">
+- Step 3: I used `disassemble main` to see where the the `strcmp` and `strncmp` functions were being called.
+<img src="./imgs/101-crackme_cmp_1.png" alt="101-crackme_cmp_1">
+<img src="./imgs/101-crackme_cmp_2.png" alt="101-crackme_cmp_2">
+- Step 4: I examined the compared strings to see what the password was.
+    <img src="./imgs/101-crackme_cmp_res.png" alt="101-crackme_cmp_2">
+- Step 5: After that I tried the using one of the passwords in the program but didn't work!
+- Step 6: I then I noticed that there's `MD5` hash functions from the `OpenSSL` library being called.
+- Step 7: I Used an online decoder to decode the hash to the password.
+  - hash: `e99a18c428cb38d5f260853678922e03`
+  - password: `abc123`
+- Step 8: I ran the program with the password and still didn't work!
+- Step 9: After examining the assembly code I noticed that the program printing `Access denied` when `argc` is not equal to `1`.
+  - That mean that the program use other method to check the password.
+- Step 10: After examining the assembly more I noticed that the program use `envp` param and checks
+  - They iterat through the `envp` array and check if the `envp[i]` is equal to `jennieandjayloveasm=`
+  - If it is equal to `jennieandjayloveasm=` then the program compute its `MD5` hash and compare it to the hash `e99a18c428cb38d5f260853678922e03`
+  - If it is equal to `e99a18c428cb38d5f260853678922e03` then the program prints `Access Granted` and exits.
 
-
+## The solution
+ - create a environment variable called `jennieandjayloveasm=` and set it to the password `abc123`
+ - `export jennieandjayloveasm=abc123`
+ - run the program `./101-crackme_password`
+ - The program should print `Access Granted`
 
 </details>
 
