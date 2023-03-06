@@ -7,6 +7,7 @@ TEST_FILES=test_files
 BIN_DIR=bin
 
 FILE=
+PUTCHAR:=${TEST_FILES}/_putchar.c
 
 TEST_FILE:=${TEST_FILES}/$(shell echo ${FILE} | sed 's/-[^-]*\./-main./g')
 BIN:=${BIN_DIR}/$(shell basename ${FILE} .c)
