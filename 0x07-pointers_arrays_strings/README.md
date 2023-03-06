@@ -26,6 +26,8 @@
 <details>
 <summary><a href="0-memset.c">0. memset</a></summary>
 
+<img src="./imgs/0-memset.png" alt="0-memset">
+
 ```c
 #include "main.h"
 #include <stdio.h>
@@ -110,12 +112,17 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-memset.c -o 0-memset
 <details>
 <summary><a href="1-memcpy.c">1. memcpy</a></summary>
 
+<img src="./imgs/1-memcpy.png" alt="1-memcpy">
+
+
 </details>
 
 ---
 
 <details>
 <summary><a href="2-strchr.c">2. strchr</a></summary>
+
+<img src="./imgs/2-strchr.png" alt="2-strchr">
 
 </details>
 
@@ -124,12 +131,16 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-memset.c -o 0-memset
 <details>
 <summary><a href="3-strspn.c">3. strspn</a></summary>
 
+<img src="./imgs/3-strspn.png" alt="3-strspn">
+
 </details>
 
 ---
 
 <details>
 <summary><a href="4-strpbrk.c">4. strpbrk</a></summary>
+
+<img src="./imgs/4-strpbrk.png" alt="4-strpbrk">
 
 </details>
 
@@ -138,12 +149,16 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-memset.c -o 0-memset
 <details>
 <summary><a href="5-strstr.c">5. strstr</a></summary>
 
+<img src="./imgs/5-strstr.png" alt="5-strstr">
+
 </details>
 
 ---
 
 <details>
 <summary><a href="7-print_chessboard.c">6. Chess is mental torture</a></summary>
+
+<img src="./imgs/7-print_chessboard.png" alt="7-print_chessboard">
 
 </details>
 
@@ -152,12 +167,7 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-memset.c -o 0-memset
 <details>
 <summary><a href="8-print_diagsums.c">7. The line of life is a ragged diagonal between duty and desire</a></summary>
 
-</details>
-
----
-
-<details>
-<summary><a href="9-set_string.c">8. Double pointer, double fun</a></summary>
+<img src="./imgs/8-print_diagsums.png" alt="8-print_diagsums">
 
 </details>
 
@@ -166,12 +176,16 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-memset.c -o 0-memset
 <details>
 <summary><a href="100-set_string.c">8. Double pointer, double fun</a></summary>
 
+<img src="./imgs/100-set_string.png" alt="100-set_string">
+
 </details>
 
 ---
 
 <details>
 <summary><a href="101-crackme_password">9. My primary goal of hacking was the intellectual curiosity, the seduction of adventure</a></summary>
+
+<img src="./imgs/101-crackme_password.png" alt="101-crackme_password">
 
 </details>
 
