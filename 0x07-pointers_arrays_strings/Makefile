@@ -18,8 +18,5 @@ all: ${BIN_DIR}
 ${BIN_DIR}:
 	@mkdir -p ${BIN_DIR}
 
-${TEST_FILE}:
-	@echo "${TEST_FILE} does not exist"
-
 clean:
 	@rm -rf ${BIN_DIR}
