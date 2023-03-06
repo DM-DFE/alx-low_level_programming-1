@@ -501,7 +501,7 @@ Bob Dylan, Bob Dylan
 <img src="./imgs/101-crackme_password.png" alt="101-crackme_password">
 
 ## How I cracked the password
-- Step 1: I ran the program with random inputs to see what the output was. (it was always `Access denied`)
+- Step 1: I ran the [program](https://github.com/holbertonschool/0x06.c) with random inputs to see what the output was. (it was always `Access denied`)
 - Step 2: I opened the program in `gdb` to see what the program was doing.
     - I used `info functions` to see what functions were in the program.
 
