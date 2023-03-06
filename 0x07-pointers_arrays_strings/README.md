@@ -504,10 +504,16 @@ Bob Dylan, Bob Dylan
 - Step 1: I ran the program with random inputs to see what the output was. (it was always `Access denied`)
 - Step 2: I opened the program in `gdb` to see what the program was doing.
     - I used `info functions` to see what functions were in the program.
-    <img src="./imgs/101-crackme_1.png" alt="101-crackme_password_1">
+
+<img src="./imgs/101-crackme_1.png" alt="101-crackme_password_1" height="500" >
+
 - Step 3: I used `disassemble main` to see where the the `strcmp` and `strncmp` functions were being called.
-<img src="./imgs/101-crackme_cmp_1.png" alt="101-crackme_cmp_1">
-<img src="./imgs/101-crackme_cmp_2.png" alt="101-crackme_cmp_2">
+	
+<img src="./imgs/101-crackme_cmp_1.png" alt="101-crackme_cmp_1" width="400"> 
+
+	
+<img src="./imgs/101-crackme_cmp_2.png" alt="101-crackme_cmp_2" width="400">
+	
 - Step 4: I examined the compared strings to see what the password was.
     <img src="./imgs/101-crackme_cmp_res.png" alt="101-crackme_cmp_2">
 - Step 5: After that I tried the using one of the passwords in the program but didn't work!
