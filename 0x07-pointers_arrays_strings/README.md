@@ -13,6 +13,37 @@
 
 ### What is a pointer to a pointer and how to use it?
 
+A pointer to a pointer is a type of pointer variable that stores the address of another pointer variable. It is also known as a double pointer.
+
+In C programming, a pointer to a pointer can be useful in situations where we need to pass a pointer as an argument to a function and modify the original pointer. By using a pointer to a pointer, we can indirectly modify the value of the original pointer.
+
+Here's an example:
+
+```c
+#include <stdio.h>
+
+void changePointer(int **ptr)
+{
+    int newNum = 20;
+    *ptr = &newNum;
+}
+
+int main()
+{
+    int num = 10;
+    int *ptr = &num;
+    
+    printf("Before function call: %d\n", *ptr); // output: 10
+    
+    changePointer(&ptr);
+    
+    printf("After function call: %d\n", *ptr); // output: 20
+    
+    return 0;
+}
+
+```
+
 ### What is a multidimensional array and how to use it?
 
 ### What are the most common C standard library functions to manipulate strings?
