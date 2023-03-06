@@ -46,7 +46,54 @@ int main()
 
 ### What is a multidimensional array and how to use it?
 
+A multidimensional array is an array of arrays. It is a way to represent data in multiple dimensions, such as a table or a matrix.
+
+In C, a multidimensional array can be declared as follows:
+
+```
+data_type array_name[size1][size2]...[sizeN];
+```
+where `data_type` is the type of data to be stored in the array, `array_name` is the name of the array, and `size1`, `size2`, ..., `sizeN` are the sizes of each dimension of the array.
+
+To access elements of a multidimensional array, you can use nested loops. For example, to initialize a 2D array of integers with the values 0 to 9, you can do:
+
+```c
+int arr[3][3];
+
+for (int i = 0; i < 3; i++) {
+  for (int j = 0; j < 3; j++) {
+    arr[i][j] = i * 3 + j;
+  }
+}
+```
+
+This will create a 3x3 array with the following values:
+
+```
+0 1 2
+3 4 5
+6 7 8
+```
+
+You can also create arrays with more than two dimensions, such as 3D arrays, 4D arrays, and so on. The concept is the same, but you need to use nested loops for each dimension.
+
 ### What are the most common C standard library functions to manipulate strings?
+
+The most common C standard library functions to manipulate strings include:
+
+* `[strlen](https://man7.org/linux/man-pages/man3/strlen.3.html)` - returns the length of a string.
+* `[strcpy](https://man7.org/linux/man-pages/man3/strcpy.3.html)` - copies a string.
+* `[strncpy](https://man7.org/linux/man-pages/man3/strncpy.3.html)` - copies a certain number of characters from one string to another.
+* `[strcat](https://man7.org/linux/man-pages/man3/strcat.3.html)` - concatenates two strings.
+* `[strncat](https://man7.org/linux/man-pages/man3/strncat.3.html)` - concatenates a certain number of characters from one string to another.
+* `[strcmp](https://man7.org/linux/man-pages/man3/strcmp.3.html)` - compares two strings.
+* `[strncmp](https://man7.org/linux/man-pages/man3/strncmp.3.html)` - compares a certain number of characters from two strings.
+* `[strstr](https://man7.org/linux/man-pages/man3/strstr.3.html)` - searches for a substring in a string.
+* `[strtok](https://man7.org/linux/man-pages/man3/strtok.3.html)` - breaks a string into tokens.
+* `[sprintf](https://man7.org/linux/man-pages/man3/sprintf.3.html)` - formats and stores a string in a buffer.
+
+There are many other functions in the C standard library that can be used to manipulate strings as well.
+
 
 ## Tasks
 - All `*-main.c` files are provided in the `[test_files](./test_files)` directory.
