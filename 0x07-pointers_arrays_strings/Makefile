@@ -13,7 +13,8 @@ TEST_FILE:=${TEST_FILES}/$(shell echo ${FILE} | sed 's/-[^-]*\./-main./g')
 BIN:=${BIN_DIR}/$(shell basename ${FILE} .c)
 
 all: ${BIN_DIR}
-	$(CC) $(INCLUDES) $(CFLAGS) -o ${BIN} ${TEST_FILE} ${FILE}
+	@$(CC) $(INCLUDES) $(CFLAGS) -o ${BIN} ${TEST_FILE} ${FILE}
+	@./${BIN}
 
 ${BIN_DIR}:
 	@mkdir -p ${BIN_DIR}
