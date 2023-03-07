@@ -1,4 +1,4 @@
-#include "main.h"
+#include "../main.h"
 
 /**
  * main - Tests for the _atoi function
