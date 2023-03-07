@@ -1,23 +1,34 @@
 CC=gcc
-CFLAGS=-I. -Wall -Wextra -Werror -pedantic -std=c99
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c89
+INCLUDES=-I.
 
-all:
-	@echo "Usage: make [target]"
+TEST_OUTPUT=test_output
+TEST_FILES=test_files
+BIN_DIR=bin
 
-0:
-	$(CC) $(CFLAGS) 0-main.c tests/positive_or_negative.c -o 0-main
+FILE=
 
-1:
-	$(CC) $(CFLAGS) 1-main.c -o 1-main
+TEST_FILE:=${TEST_FILES}/$(shell echo ${FILE} | sed 's/-[^-]*\./-main./g')
+OTHER_FILES:=$(addprefix ${TEST_FILES}/, $(shell ls ${TEST_FILES} | grep -v main))
 
-2:
-	$(CC) $(CFLAGS) tests/2-main.c 2-largest_number.c -o 2-main
+ifeq ($(shell if [ -f ${TEST_FILE} ]; then echo 1; else echo 0; fi), 1)
+	TEST_FILE:=${TEST_FILE}
+else
+	TEST_FILE:=
+endif
 
-3-a:
-	$(CC) $(CFLAGS) 3-print_remaining_days.c tests/3-convert_day.c tests/3-main_a.c -o 3-main_a
+BIN:=${BIN_DIR}/$(shell basename ${FILE} .c)
+OUTPUT=${TEST_OUTPUT}/$(shell basename ${FILE} .c).out
 
-3-b:
-	$(CC) $(CFLAGS) 3-print_remaining_days.c tests/3-convert_day.c tests/3-main_b.c -o 3-main_b
+all: ${BIN_DIR} ${TEST_OUTPUT}
+	@$(CC) $(INCLUDES) $(CFLAGS) -o ${BIN} ${TEST_FILE} ${OTHER_FILES} ${FILE}
+	@./${BIN} > ${OUTPUT} && ./${BIN}
+
+${BIN_DIR}:
+	@mkdir -p $@
+
+${TEST_OUTPUT}:
+	@mkdir -p $@
 
 clean:
-	rm -f 0-main 1-main 2-main 3-main_a 3-main_b
+	@rm -rf ${BIN_DIR}
