@@ -1,87 +1,36 @@
-CC			:= gcc
-CFLAGS		:= -Wall -Werror -Wextra -pedantic -std=gnu89
-RM			:= rm -rf
-TEST_DIR	:= test_files
-BIN_DIR		:= bin
-INCLUDES	:= -I.
-CFLAGS		+= $(INCLUDES)
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c89
+INCLUDES=-I.
 
-FSANITIZE	:= -fsanitize=signed-integer-overflow
+TEST_OUTPUT=test_output
+TEST_FILES=test_files
+BIN_DIR=bin
 
-.PHONY: all clean animation 0 1 2 3 4 5 6 7 8 9 100 101
+FILE=
 
-all: 0 1 2 3 4 5 6 7 8 9 100 101
+TEST_FILE:=${TEST_FILES}/$(shell echo ${FILE} | sed 's/-[^-]*\./-main./g')
+OTHER_FILES:=$(addprefix ${TEST_FILES}/, $(shell ls ${TEST_FILES} | grep -v main))
 
-0:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(shell find . -name "$@-main.c") $@-reset_to_98.c -o $(BIN_DIR)/$@-98
-	@./$(BIN_DIR)/$@-98
+ifeq ($(shell if [ -f ${TEST_FILE} ]; then echo 1; else echo 0; fi), 1)
+	TEST_FILE:=${TEST_FILE}
+else
+	TEST_FILE:=
+endif
 
-1:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $@-swap.c -o $(BIN_DIR)/$@-swap
-	@./$(BIN_DIR)/$@-swap
+BIN:=${BIN_DIR}/$(shell basename ${FILE} .c)
+OUTPUT=${TEST_OUTPUT}/$(shell basename ${FILE} .c).out
 
-2:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $@-strlen.c -o $(BIN_DIR)/$@-strlen
-	@./$(BIN_DIR)/$@-strlen
+all: ${BIN_DIR} ${TEST_OUTPUT}
+	@$(CC) $(INCLUDES) $(CFLAGS) -o ${BIN} ${TEST_FILE} ${OTHER_FILES} ${FILE}
+	@./${BIN} > ${OUTPUT} && ./${BIN}
 
-3:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $(TEST_DIR)/_putchar.c $@-puts.c -o $(BIN_DIR)/$@-puts
-	@./$(BIN_DIR)/$@-puts
+${BIN_DIR}:
+	@mkdir -p $@
 
-4:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $(TEST_DIR)/_putchar.c $@-print_rev.c -o $(BIN_DIR)/$@-print_rev
-	@./$(BIN_DIR)/$@-print_rev
-
-5:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $@-rev_string.c -o $(BIN_DIR)/$@-rev_string
-	@./$(BIN_DIR)/$@-rev_string
-
-6:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $(TEST_DIR)/_putchar.c $@-puts2.c -o $(BIN_DIR)/$@-puts2
-	@./$(BIN_DIR)/$@-puts2
-
-7:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $(TEST_DIR)/_putchar.c $@-puts_half.c -o $(BIN_DIR)/$@-puts_half
-	@./$(BIN_DIR)/$@-puts_half
-
-8:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $@-print_array.c -o $(BIN_DIR)/$@-print_array
-	@./$(BIN_DIR)/$@-print_array
-
-9:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(TEST_DIR)/$@-main.c $@-strcpy.c -o $(BIN_DIR)/$@-strcpy
-	@./$(BIN_DIR)/$@-strcpy
-
-100:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $(FSANITIZE) $(TEST_DIR)/$@-main.c $@-atoi.c -o $(BIN_DIR)/$@-atoi
-	@./$(BIN_DIR)/$@-atoi
-
-101:
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CFLAGS) $@-keygen.c -o $(BIN_DIR)/$@-keygen
-	@./$(TEST_DIR)/101-crackme  "`./$(BIN_DIR)/$@-keygen`"
-
-
-animation:
-	@printf "Executing "
-	@while [ ! -f target ]; do \
-		printf "."; \
-		sleep 0.5; \
-	done
-	@echo " done!"
+${TEST_OUTPUT}:
+	@mkdir -p $@
 
 clean:
-	@echo "Cleaning... \c"
-	@$(RM) $(BIN_DIR)
-	@printf "\033[32mDone!\033[0m\n"
+	@rm -rf ${BIN_DIR}
+	@rm -rf ${TEST_OUTPUT}
+	@rm -f ${BIN}
