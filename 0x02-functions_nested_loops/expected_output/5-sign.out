@@ -1,0 +1,8 @@
++0+-++-- | Testing with '98' 		- [OK]
+ | Testing with '0' 		- [OK]
+ | Testing with '255' 		- [OK]
+ | Testing with '-1' 		- [OK]
+ | Testing with '99' 		- [OK]
+ | Testing with '2147483647' 	- [OK]
+ | Testing with '-2147483648' 	- [OK]
+ | Testing with '-4' 		- [OK]
