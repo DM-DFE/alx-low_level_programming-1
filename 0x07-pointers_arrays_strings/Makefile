@@ -25,3 +25,4 @@ ${TEST_OUTPUT}:
 
 clean:
 	@rm -rf ${BIN_DIR}
+	@rm -rf ${TEST_OUTPUT}
