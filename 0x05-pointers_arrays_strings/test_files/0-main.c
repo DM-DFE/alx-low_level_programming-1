@@ -1,4 +1,5 @@
 #include "../main.h"
+#include <limits.h>
 
 /**
  * main - check the function reset_to_98
