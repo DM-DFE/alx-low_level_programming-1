@@ -508,3 +508,6 @@ int main(void)
 
 </details>
 
+## Notes:
+- `static` variables are not allowed.
+- `loops` are not allowed.
