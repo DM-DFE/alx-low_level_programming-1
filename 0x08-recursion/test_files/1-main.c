@@ -8,5 +8,9 @@
 int main(void)
 {
     _print_rev_recursion("\nColton Walker");
+	_print_rev_recursion("\nFirst, solve the problem. Then, write the code");
+	_puts_recursion("Talk is cheap. Show me the code");
+	_puts_recursion("");
+
     return (0);
 }
