@@ -1,4 +1,9 @@
-# 0x08. C - Recursion
+
+<h1 align="center">0x08. C - Recursion</h1>
+
+<p align="center">
+<img src="./imgs/a88.jpeg" alt="A meme about leonardo dicaprio saying 'we need to go deeper'">
+</p>
 
 ## Resources
 - [0x08. Recursion, introduction](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/misc/2021/1/2818ba6f14f644b871dcbd746925fa15b8cd5937.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230308%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230308T140244Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=643abdea1ac2d004bbae216158d409e46d39f0ea54263a37e9af59f269afc6e6)
