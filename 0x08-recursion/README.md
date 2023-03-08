@@ -13,7 +13,7 @@
 <details>
 <summary><a href="0-puts_recursion.c">0. She locked away a secret, deep inside herself, something she once knew to be true... but chose to forget</a></summary>
 
-<img src="./imgs/0-memset.png" alt="0-memset">
+<img src="./imgs/0-puts_recursion.png" alt="puts a string recursively">
 
 ## Task 0
 
@@ -46,7 +46,7 @@ int main(void)
 ---
 
 <details>
-<summary><a href="1-memcpy.c">1. memcpy</a></summary>
+<summary><a href="1-print_rev_recursion.c">1. Why is it so important to dream? Because, in my dreams we are together</a></summary>
 
 ## Task 1
 
@@ -120,7 +120,7 @@ int main(void)
 
 ## Task 3
 
-<img src="./imgs/3-factorial.png" alt="factorial with recursion">
+<img src="./imgs/3-factorial.png" alt="factorial">
 
 ```c
 julien@ubuntu:~/0x08. Recursion$ cat 3-main.c
@@ -158,4 +158,58 @@ int main(void)
 > -1
 > ```
 
+</details>
+
 ---
+
+<details>
+
+## Task 4
+
+<img src="./imgs/4-pow_recursion.png" alt="power recursion">
+
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
+
+    r = _pow_recursion(1, 10);
+    printf("%d\n", r);
+    r = _pow_recursion(1024, 0);
+    printf("%d\n", r);
+    r = _pow_recursion(2, 16);
+    printf("%d\n", r);
+    r = _pow_recursion(5, 2);
+    printf("%d\n", r);
+    r = _pow_recursion(5, -2);
+    printf("%d\n", r);
+    r = _pow_recursion(-5, 3);
+    printf("%d\n", r);
+    return (0);
+}
+```
+
+> compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 4-pow_recursion.c -o 4-pow_recursion`
+
+> Output:
+> ```shell
+> 1
+> 1
+> 65536
+> 25
+> -1
+> -125
+> ```
+
+</details>
+
+---
+
