@@ -213,3 +213,52 @@ int main(void)
 
 ---
 
+<details>
+<summary><a href="5-sqrt_recursion.c">5. Your subconscious is looking for the dreamer</a></summary>
+
+## Task 5
+
+<img src="./imgs/5-sqrt_recursion.png" alt="square root recursion">
+
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
+
+    r = _sqrt_recursion(1);
+    printf("%d\n", r);
+    r = _sqrt_recursion(1024);
+    printf("%d\n", r);
+    r = _sqrt_recursion(16);
+    printf("%d\n", r);
+    r = _sqrt_recursion(17);
+    printf("%d\n", r);
+    r = _sqrt_recursion(25);
+    printf("%d\n", r);
+    r = _sqrt_recursion(-1);
+    printf("%d\n", r);
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 5-sqrt_recursion.c -o 5-sqrt_recursion`
+
+> Output:
+> ```shell
+> 1
+> 32
+> 4
+> -1
+> 5
+> -1
+> ```
+
+</details> 
