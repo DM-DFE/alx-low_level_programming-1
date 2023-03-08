@@ -114,3 +114,48 @@ int main(void)
 </details>
 
 ---
+
+<details>
+<summary><a href="3-factorial.c">3. You mustn't be afraid to dream a little bigger, darling</a></summary>
+
+## Task 3
+
+<img src="./imgs/3-factorial.png" alt="factorial with recursion">
+
+```c
+julien@ubuntu:~/0x08. Recursion$ cat 3-main.c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
+
+    r = factorial(1);
+    printf("%d\n", r);
+    r = factorial(5);
+    printf("%d\n", r);
+    r = factorial(10);
+    printf("%d\n", r);
+    r = factorial(-1024);
+    printf("%d\n", r);
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-factorial.c -o 3-factorial`
+
+> Output:
+> ```c
+> 1
+> 120
+> 3628800
+> -1
+> ```
+
+---
