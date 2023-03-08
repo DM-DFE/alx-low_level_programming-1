@@ -48,7 +48,31 @@ int main(void)
 <details>
 <summary><a href="1-memcpy.c">1. memcpy</a></summary>
 
-<img src="./imgs/1-memcpy.png" alt="1-memcpy">
+## Task 1
+
+<img src="./imgs/1-print_rev_recursion.png" alt="print in reverse with recursion">
+
+```c
+#include "main.h"
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    _print_rev_recursion("\nColton Walker");
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 _putchar.c 1-main.c 1-print_rev_recursion.c -o 1-print_rev_recursion`
+
+> Output:
+> ```shell
+> reklaW notloC
+```
 
 </details>
 
