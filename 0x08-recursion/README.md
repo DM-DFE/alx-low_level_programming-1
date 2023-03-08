@@ -320,3 +320,120 @@ int main(void)
 > ```
 
 </details>
+
+---
+
+<details>
+<summary><a href="100-is_palindrome.c">7. They say we only use a fraction of our brain's true potential. Now that's when we're awake. When we sleep, we can do almost anything</a></summary>
+
+## Task 7
+
+<img src="./imgs/100-is_palindrome.png" alt="palindrome">
+
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
+
+    r = is_palindrome("level");
+    printf("%d\n", r);
+    r = is_palindrome("redder");
+    printf("%d\n", r);
+    r = is_palindrome("test");
+    printf("%d\n", r);
+    r = is_palindrome("step on no pets");
+    printf("%d\n", r);
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 7-main.c 7-is_palindrome.c -o 7-is_palindrome`
+
+> Output:
+> ```shell
+> 1
+> 1
+> 0
+> 1
+> ```
+
+</details>
+
+---
+
+<details>
+<summary><a href="101-wildcmp.c">8. Inception. Now, before you bother telling me it's impossible...</a></summary>
+
+## Task 8
+
+<img src="./imgs/101-wildcmp.png" alt="wildcmp">
+
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int r;
+
+    r = wildcmp("main.c", "*.c");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "m*a*i*n*.*c*");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "main.c");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "m*c");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "ma********************************c");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "*");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "***");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "m.*c");
+    printf("%d\n", r);
+    r = wildcmp("main.c", "**.*c");
+    printf("%d\n", r);
+    r = wildcmp("main-main.c", "ma*in.c");
+    printf("%d\n", r);
+    r = wildcmp("main", "main*d");
+    printf("%d\n", r);
+    r = wildcmp("abc", "*b");
+    printf("%d\n", r);
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-wildcmp.c -o 100-wildcmp`
+
+> Output:
+> ```shell
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 1
+> 0
+> 1
+> 1
+> 0
+> 0
+> ```
+
+</details>
+
