@@ -72,7 +72,7 @@ int main(void)
 > Output:
 > ```shell
 > reklaW notloC
-```
+>```
 
 </details>
 
@@ -81,7 +81,35 @@ int main(void)
 <details>
 <summary><a href="2-"></a></summary>
 
+## Task 2
+
 <img src="./imgs/" alt="">
+
+```c
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int n;
+
+    n = _strlen_recursion("Corbin Coleman");
+    printf("%d\n", n);
+    return (0);
+}
+```
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-strlen_recursion.c -o 2-strlen_recursion`
+
+> Output:
+> ```shell
+> 14
+>```
 
 </details>
 
