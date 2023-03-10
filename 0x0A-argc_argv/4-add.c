@@ -9,8 +9,22 @@
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
-		return (printf("Error\n"), 1);
-	printf("%d\n", atoi(argv[1]) + atoi(argv[2]));
+	int i, j, sum = 0;
+
+	/* loop through arguments */
+	for (i = 1; i < argc; i++)
+	{
+		/* check for non-digit characters */
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+				return (printf("Error\n"), 1);
+		}
+
+		/* add to sum */
+		sum += atoi(argv[i]);
+	}
+
+	printf("%d\n", sum);
 	return (0);
 }
