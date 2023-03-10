@@ -1,22 +1,73 @@
 #!/usr/bin/env bash
+#!/bin/bash
 
-# loop through all the files in the current directory
-# and add them to the list of files to compile
-#for file in ./*.c
-#do
-#  echo "Compiling $file"
-#  gcc -c "$file"
-#done
+# Define colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+PURPLE='\033[0;35m'
+NC='\033[0m'
 
-gcc -c ./*.c
+# Define print functions
+function print_header() {
+  echo -e "\n${GREEN}<======================================================>"
+  echo -e "\t\tCraeting Static Library"
+  echo -e "<======================================================>${NC}\n"
+}
 
-# compile the files into a static library
-ar rcs liball.a ./*.o
+function print_footer() {
+  echo -e "\n${GREEN}<======================================================>${NC}\n"
+}
 
-echo "Static library created"
+function print_info() {
+  echo -en "${PURPLE}[+]${NC} $1"
+}
 
-# clean up the object files
-rm ./*.o
+function print_error() {
+  echo -en "${RED}[!]${NC} $1"
+}
 
-# note: the ./*.o instead of *.o so names with dashes won't become options.
+function print_warning() {
+  echo -en "${YELLOW}[!]${NC} $1"
+}
 
+function print_success(){
+  echo -en "${GREEN}[+]${NC} $1"
+}
+
+# Print header
+print_header
+
+# Compile the source code into object files
+print_info "Compiling source code into object files..."
+if gcc -c -Wall -pedantic -Werror -Wextra -I. ./*.c; then
+  echo -e "${GREEN}\t[ done ]${NC}"
+else
+  echo -e "${RED}\t[ failed ]${NC}"
+  print_error "Failed to compile source code.\n"
+  print_footer
+  exit 1
+fi
+
+# Create the static library archive
+print_info "Creating static library archive..."
+if ar rcs libmy.a ./*.o; then
+  echo -e "${GREEN}\t\t[ done ]${NC}"
+else
+  echo -e "${RED}\t\t[ failed ]${NC}"
+  print_error "Failed to create static library archive.\n"
+  print_footer
+  exit 1
+fi
+
+# Clean up object files
+print_info "Cleaning up object files\t"
+if rm ./*.o; then
+  echo -e "${GREEN}\t\t[ done ]${NC}"
+else
+  echo -e "${RED}\t\t[ failed ]${NC}"
+  print_warning "Warning: Failed to clean up object files.\n"
+fi
+
+# Print footer
+print_footer
