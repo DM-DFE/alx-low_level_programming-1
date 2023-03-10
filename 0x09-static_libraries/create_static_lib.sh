@@ -50,7 +50,7 @@ fi
 
 # Create the static library archive
 print_info "Creating static library archive..."
-if ar rcs libmy.a ./*.o; then
+if ar rcs liball.a ./*.o; then
   echo -e "${GREEN}\t\t[ done ]${NC}"
 else
   echo -e "${RED}\t\t[ failed ]${NC}"
