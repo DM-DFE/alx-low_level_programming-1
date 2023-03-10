@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 #!/bin/bash
 
 # Define colors for output
