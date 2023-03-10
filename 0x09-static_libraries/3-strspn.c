@@ -1,22 +1,6 @@
 #include "main.h"
 
 /**
- * inCharSet - checks if a character is in a set of characters
- * @c: character to be checked
- * @accept: string containing the characters to match
- * Return: 1 if c is in accept, 0 otherwise
- */
-int inCharSet(char c, char *accept)
-{
-	int i = 0;
-
-	while (accept[i])
-		if (c == accept[i++])
-			return (1);
-	return (0);
-}
-
-/**
  * _strspn - gets the length of a prefix substring
  * @s: string to be scanned
  * @accept: string containing the characters to match
@@ -26,9 +10,15 @@ int inCharSet(char c, char *accept)
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i = 0;
+	int i, j;
 
-	while (s[i] && inCharSet(s[i], accept))
-		i++;
+	for (i = 0; s[i]; i++) {
+		for (j = 0; accept[j]; j++) {
+			if (s[i] == accept[j])
+				break;
+		}
+		if (!accept[j])
+			break;
+	}
 	return (i);
 }
