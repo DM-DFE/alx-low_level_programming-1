@@ -103,3 +103,142 @@ The `(void)y` syntax tells the compiler that the `y` parameter is not used in th
 > ```
 
 </details>
+
+---
+
+<details>
+<summary><a href="./1-args.c">1. Silence is argument carried out by other means</a></summary>
+
+### Task 1
+
+<img src="./imgs/1-args.png" alt="1-args.png" />
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra 1-args.c -o 1-args`
+
+> Output:
+> ```
+> $ ./1-args
+> 0
+> $ ./1-args You can do anything, but not everything.
+> 7
+> $ ./1-args Betty Holberton
+> 2
+> ```
+
+</details>
+
+---
+
+<details>
+<summary><a href="./2-args.c">2. The best argument against democracy is a five-minute conversation with the average voter</a></summary>
+
+### Task 2
+
+<img src="./imgs/2-args.png" alt="2-args.png" />
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra 2-args.c -o 2-args`
+
+> Output:
+> ```
+> $ ./1-args
+> ./1-args
+> $ ./1-args You can do anything, but not everything.
+> ./1-args
+> You
+> can
+> do
+> anything,
+> but
+> not
+> everything.
+> ```
+
+</details>
+
+---
+
+<details>
+
+<summary><a href="./3-mul.c">3. Neither irony nor sarcasm is argument</a></summary>
+
+### Task 3
+
+<img src="./imgs/3-mul.png" alt="3-mul.png" />
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra 3-mul.c -o 3-mul`
+  
+> Output:
+> ```
+> $ ./3-mul 2 3
+> 6
+> $ ./3-mul 2 -3
+> -6
+> $ ./3-mul 2 0
+> 0
+> $ ./3-mul 245 3245
+> 794325
+> $ ./3-mul 0 3245
+> 0
+> $ ./3-mul
+> Error
+> $ ./3-mul 1 2 3
+> Error
+> ```
+
+</details>
+
+---
+
+<details>
+
+<summary><a href="./4-add.c">4. To infinity and beyond</a></summary>
+
+### Task 4
+
+<img src="./imgs/4-add.png" alt="4-add.png" />
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra 4-add.c -o 4-add`
+  
+> Output:
+> ```
+> $ ./4-add 1 1
+> 2
+> $ ./4-add 1 10 100 1000
+> 1111
+> $ ./4-add 1 2 3 e 4 5
+> Error
+> $ ./4-add 1 2 3 4 5 hola 6
+> Error
+> $ ./4-add
+> 0
+> ```
+
+</details>
+
+---
+
+<details>
+
+<summary><a href="./100-change.c">5. Minimal Number of Coins for Change</a></summary>
+
+### Task 5
+
+<img src="./imgs/100-change.png" alt="100-change.png" />
+
+> Compiled with: `gcc -Wall -pedantic -Werror -Wextra 100-change.c -o 100-change`
+> 
+> Output:
+> ```
+> $ ./100-change
+> Error
+> $ ./100-change 10
+> 1
+> $ ./100-change 100
+> 4
+> $ ./100-change 101
+> 5
+> $ ./100-change 13
+> 3
+> ```
+
+</details>
