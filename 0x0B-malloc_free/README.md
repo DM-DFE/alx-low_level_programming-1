@@ -353,6 +353,80 @@ int main(void)
 <a href="./3-alloc_grid.c">3. If you even dream of beating me you'd better wake up and apologize</a>
 </summary>
 
+### Task 3
+
+<img src="./images/3.png" alt="3. If you even dream of beating me you'd better wake up and apologize">
+
+```c
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_grid - prints a grid of integers
+ * @grid: the address of the two dimensional grid
+ * @width: width of the grid
+ * @height: height of the grid
+ *
+ * Return: Nothing.
+ */
+void print_grid(int **grid, int width, int height)
+{
+    int w;
+    int h;
+
+    h = 0;
+    while (h < height)
+    {
+        w = 0;
+        while (w < width)
+        {
+            printf("%d ", grid[h][w]);
+            w++;
+        }
+        printf("\n");
+        h++;
+    }   
+}
+
+/**
+ * main - check the code for ALX School students.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int **grid;
+
+    grid = alloc_grid(6, 4);
+    if (grid == NULL)
+    {
+        return (1);
+    }
+    print_grid(grid, 6, 4);
+    printf("\n");
+    grid[0][3] = 98;
+    grid[3][4] = 402;
+    print_grid(grid, 6, 4);
+    return (0);
+}
+```
+
+> Compiled with `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-alloc_grid.c -o grid`
+ 
+> Output:
+> ```
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 
+> 0 0 0 98 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 402 0
+> ```
+
 </details>
 
 ---
@@ -362,14 +436,149 @@ int main(void)
 <a href="./4-free_grid.c">4. It's not bragging if you can back it up</a>
 </summary>
 
+### Task 4
+
+<img src="./images/4.png" alt="4. It's not bragging if you can back it up">
+
+```c
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_grid - prints a grid of integers
+ * @grid: the address of the two dimensional grid
+ * @width: width of the grid
+ * @height: height of the grid
+ *
+ * Return: Nothing.
+ */
+void print_grid(int **grid, int width, int height)
+{
+    int w;
+    int h;
+
+    h = 0;
+    while (h < height)
+    {
+        w = 0;
+        while (w < width)
+        {
+            printf("%d ", grid[h][w]);
+            w++;
+        }
+        printf("\n");
+        h++;
+    }   
+}
+
+/**
+ * main - check the code for ALX School students.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    int **grid;
+
+    grid = alloc_grid(6, 4);
+    if (grid == NULL)
+    {
+        return (1);
+    }
+    print_grid(grid, 6, 4);
+    printf("\n");
+    grid[0][3] = 98;
+    grid[3][4] = 402;
+    print_grid(grid, 6, 4);
+    free_grid(grid, 4);
+    return (0);
+}
+```
+
+> Compiled with `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 3-alloc_grid.c 4-free_grid.c -o grid`
+ 
+> Output:
+> ```
+> valgrind ./grid
+> ==1020== Memcheck, a memory error detector
+> ==1020== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+> ==1020== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+> ==1020== Command: ./grid
+> ==1020==
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+>   
+> 0 0 0 98 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 0 0
+> 0 0 0 0 402 0
+> ==1020==
+> ==1020== HEAP SUMMARY:
+> ==1020==     in use at exit: 0 bytes in 0 blocks
+> ==1020==   total heap usage: 4 allocs, 4 frees, 1,024 bytes allocated
+> ==1020==
+> ==1020== All heap blocks were freed -- no leaks are possible
+> ==1020==
+> ==1020== For counts of detected and suppressed errors, rerun with: -v
+> ==1020== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+> ```
+
+
 </details>
 
 ---
 
 <details>
 <summary>
-<a href="./5-argstostr.c">5. It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe</a>
+<a href="./100-argstostr.c">5. It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe</a>
 </summary>
+
+### Task 5
+
+<img src="./images/5.png" alt="5. It isn't the mountains ahead to climb that wear you out; it's the pebble in your shoe">
+
+```c
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - check the code for ALX School students.
+ *
+ * Return: Always 0.
+ */
+int main(int ac, char *av[])
+{
+    char *s;
+
+    s = argstostr(ac, av);
+    if (s == NULL)
+    {
+        return (1);
+    }
+    printf("%s", s);
+    free(s);
+    return (0);
+}
+```
+
+> Compiled with `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 5-argstostr.c -o argstostr`
+ 
+> Output:
+> ```
+> ./argstostr "I" "will" "show" "you" "how" "great" "I" "am"
+> I
+> will
+> show
+> you
+> how
+> great
+> I
+> am
+> ```
 
 </details>
 
@@ -377,16 +586,63 @@ int main(void)
 
 <details>
 <summary>
-<a href="./100-strtow.c">6. I will show you how great I am</a>
+<a href="./101-strtow.c">6. I will show you how great I am</a>
 </summary>
+
+### Task 6
+
+<img src="./images/6.png" alt="6. I will show you how great I am">
+
+```c
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_tab - Prints an array of string
+ * @tab: The array to print
+ *
+ * Return: nothing
+ */
+void print_tab(char **tab)
+{
+    int i;
+
+    for (i = 0; tab[i] != NULL; ++i)
+    {
+        printf("%s\n", tab[i]);
+    }
+}
+
+/**
+ * main - check the code for ALX School students.
+ *
+ * Return: 1 if an error occurred, 0 otherwise
+ */
+int main(void)
+{
+    char **tab;
+
+    tab = strtow("      ALX School         #cisfun      ");
+    if (tab == NULL)
+    {
+        printf("Failed\n");
+        return (1);
+    }
+    print_tab(tab);
+    return (0);
+}
+```
+
+> Compiled with `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-strtow.c -o strtow`
+ 
+> Output:
+> ```
+> ./strtow
+> ALX
+> School
+> #cisfun
+> ```
 
 </details>
 
----
-
-<details>
-<summary>
-<a href="./101-crackme_password">7. Expect the best. Prepare for the worst. Capitalize on what comes</a>
-</summary>
-
-</details>
