@@ -88,7 +88,7 @@ void free_words(char **words, int word_count)
 char **strtow(char *str)
 {
 	char **words;
-	int word_count, str_len, start, end, index = 0, i;
+	int word_count, str_len, start = 0, end, index = 0, i;
 
 	word_count = count_words(str);
 	if (!word_count)
@@ -101,23 +101,17 @@ char **strtow(char *str)
 	str_len = _strlen(str);
 	for (i = 0; i < str_len; i++)
 	{
-		if (str[i + 1] == ' ' || str[i + 1] == '\0')
-			continue;
-
-		if (str[i] == ' ' || !str[i])
+		if (str[i] != ' ' && (str[i + 1] == ' ' || !str[i + 1]))
 		{
-			start = i + 1;
-			end = start;
-
-			while (str[end] != ' ' && str[end] != '\0')
-				end++;
-
+			end = i + 1;
 			words[index] = copy_word(str, start, end);
 			if (!words[index])
 				return (free_words(words, index), NULL);
-
 			index++;
-		}
+		} else if (str[i] != ' ' && str[i + 1] != ' ')
+			continue;
+		else
+			start = i + 1;
 	}
 
 	return (words);
