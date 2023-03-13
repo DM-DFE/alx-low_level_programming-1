@@ -2,9 +2,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* todo: fix pointer being freed was not allocated */
+
 int **alloc_grid(int width, int height);
-char **free_grid(char **grid, int height);
-void print_grid(char **grid, int width, int height);
+void print_grid(int **grid, int width, int height);
+
+/**
+ * free_grid - frees a 2 dimensional grid previously created by
+ * your alloc_grid function
+ * @grid: grid to free
+ * @height: height of grid
+ */
+void free_grid(int **grid, int height)
+{
+	int i;
+
+	for (i = 0; i < height; i++)
+		free(grid[i]);
+	free(grid);
+}
 
 /**
  * main - test alloc_grid
