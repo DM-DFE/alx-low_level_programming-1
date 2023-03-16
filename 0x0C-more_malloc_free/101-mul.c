@@ -29,7 +29,7 @@ void print_result(int *result, int len)
 	int i;
 
 	/* remove leading zeros */
-	for (i = 0; i < len && result[i] == 0; i++)
+	for (i = 0; i <= len && result[i] == 0; i++)
 		;
 
 	/* if all digits are 0, print 0 */
