@@ -25,19 +25,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		;
 
 	/* if n is greater than or equal to the length of s2, use the entire s2 */
-	n >= len2 ? n = len2 : n;
+	n >= s2_len ? n = s2_len : n;
 
 	/* allocate memory for concatenated string */
-	result = malloc(sizeof(char) * (len1 + n + 1));
+	result = malloc(sizeof(char) * (s1_len + n + 1));
 	if (result == NULL)
 		return (NULL);
 
 	/* add s1 and s2 to s */
-	for (i = 0; i < len1; i++)
+	for (i = 0; i < s1_len; i++)
 		result[i] = s1[i];
 	for (j = 0; j < n; j++)
 		result[i + j] = s2[j];
 
 	result[i + j] = '\0';
-	return (s);
+	return (result);
 }
