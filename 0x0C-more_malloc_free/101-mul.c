@@ -29,15 +29,15 @@ void print_result(int *result, int len)
 	int i;
 
 	/* remove leading zeros */
-	for (i = 0; i < num1_len + num2_len && result[i] == 0; i++)
+	for (i = 0; i < len && result[i] == 0; i++)
 		;
 
 	/* if all digits are 0, print 0 */
-	if (i == num1_len + num2_len)
+	if (i == len)
 		printf("0");
 
 	/* print result */
-	for (i = 0; i < len; i++)
+	for (i = 1; i < len; i++)
 		printf("%d", result[i]);
 	printf("\n");
 }
@@ -50,7 +50,7 @@ void print_result(int *result, int len)
  */
 int main(int ac, char **av)
 {
-	int i, j;
+	int i, j, num1_len, num2_len;
 	int *result;
 
 	if (ac != 3 || !isNumber(av[1]) || !isNumber(av[2]))
@@ -59,10 +59,10 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	int num1_len = strlen(av[1]);
-	int num2_len = strlen(av[2]);
+	num1_len = strlen(av[1]);
+	num2_len = strlen(av[2]);
 
-	*result = calloc(num1_len + num2_len, sizeof(int));
+	result = calloc(num1_len + num2_len, sizeof(int));
 	if (result == NULL)
 	{
 		printf("Error\n");
