@@ -4,13 +4,137 @@
 - [Do I cast the result of malloc](https://stackoverflow.com/questions/605845/do-i-cast-the-result-of-malloc)
 
 ### Man or help:
-- [`exit (3)`]()
-- [`calloc`]()
-- [`realloc`]()
+- [`exit (3)`](https://www.man7.org/linux/man-pages/man3/exit.3.html)
+- [`calloc`](https://www.man7.org/linux/man-pages/man3/calloc.3p.html)
+- [`realloc`](https://www.man7.org/linux/man-pages/man3/realloc.3p.html)
+
+---
 
 ## Learning Objectives
 - [How to use the `exit` function](#how-to-use-the-exit-function)
 - [What are the functions `calloc` and `realloc` from the standard library and how to use them](#what-are-the-functions-calloc-and-realloc-from-the-standard-library-and-how-to-use-them)
+
+> ### How to use the `exit` function
+
+- The `exit()` function is a function in the `C` standard library used to terminate a program. It is declared in the `stdlib.h` header file.
+
+- The `exit()` function takes an integer argument which is the exit status of the program. A zero value is generally used to indicate that the program has completed successfully.
+
+- Here's an example of the `exit()` function:
+
+```c
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    int x = 1;
+    if (x == 1) {
+        printf("Exiting program with error code 1\n");
+        exit(1);
+    } else {
+        printf("Exiting program normally\n");
+        exit(0);
+    }
+}
+```
+
+> ### What are the functions `calloc` and `realloc` from the standard library and how to use them
+
+The `calloc` and `realloc` functions are memory allocation functions available in the C standard library.
+
+`calloc` function allocates a block of memory for an array of elements, and initializes all bytes in the block to zero. The function takes two arguments: the number of elements to allocate space for, and the size of each element.
+
+The syntax for the `calloc` function is as follows: `ptr = (castType*)calloc(n, size);` where:
+- `ptr` is a pointer to the first byte of the allocated memory block
+- `castType` is the type to which the pointer should be cast
+- `n` is the number of elements to be allocated and size is the size of each element.
+
+`realloc` function changes the size of the memory block pointed to by a previously allocated memory block. The function takes two arguments: a pointer to the previously allocated memory block, and the new size of the memory block.
+
+The syntax for the `realloc` function is as follows: `ptr = realloc(ptr, newSize);` where:
+- `ptr` is a pointer to the previously allocated memory block
+- `newSize` is the new size of the memory block
+
+Both `calloc` and `realloc` functions return a pointer to the allocated memory block. If the memory allocation fails, both functions return a `NULL` pointer.
+
+Here's an example of the `calloc` function:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    ptr = (int*)calloc(n, sizeof(int));
+
+    if (ptr == NULL) {
+        printf("Error! memory not allocated.");
+        exit(0);
+    }
+
+    printf("Memory successfully allocated using calloc.\n");
+
+    for (i = 0; i < n; ++i) {
+        ptr[i] = i + 1;
+    }
+
+    printf("The elements of the array are: ");
+    for (i = 0; i < n; ++i) {
+        printf("%d, ", ptr[i]);
+    }
+
+    free(ptr);
+    return 0;
+}
+```
+
+Here's an example of the `realloc` function:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int n = 5;
+
+    ptr = (int*)malloc(n * sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < n; i++) {
+        *(ptr+i) = i;
+        printf("%d ", *(ptr+i));
+    }
+    printf("\n");
+
+    n = 10;
+    ptr = (int*)realloc(ptr, n * sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < n; i++) {
+        *(ptr+i) = i;
+        printf("%d ", *(ptr+i));
+    }
+    printf("\n");
+
+    free(ptr);
+    return 0;
+}
+```
+
+
+---
 
 ## Tasks
 - [0. Trust no one](#0-trust-no-one)
@@ -19,6 +143,8 @@
 - [3. array_range](#3-array_range)
 - [4. _realloc](#4-_realloc)
 - [5. We must accept finite disappointment, but never lose infinite hope](#5-we-must-accept-finite-disappointment-but-never-lose-infinite-hope)
+
+---
 
 <details>
 <summary><a href="0-malloc_checked.c">0. Trust no one</a></summary>
