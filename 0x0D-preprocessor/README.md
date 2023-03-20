@@ -15,6 +15,52 @@
 - [What are the most common predefined macros](#what-are-the-most-common-predefined-macros)
 - [How to include guard your header files](#how-to-include-guard-your-header-files)
 
+> #### - What are macros and how to use them
+C macros are preprocessor directives that are used to define constants or create code snippets that are expanded during the preprocessing stage. Macros are defined using the `#define` directive and can take arguments or not. Macros can be used to define constants, create inline functions, or to create code snippets that are used multiple times.
+
+Here is an example of how to define a macro that calculates the square of a number:
+
+```c
+#define SQUARE(x) ((x) * (x))
+```
+
+This macro can be used as follows:
+
+```c
+int x = 5;
+int y = SQUARE(x);
+printf("%d\n", y); /* prints 25 */
+```
+
+> #### - What are the most common predefined macros
+
+The following are some of the most common predefined macros in C:
+
+- `__LINE__`: This macro expands to the current line number of the source code file being compiled.
+- `__FILE__`: This macro expands to the name of the current source code file being compiled.
+- `__DATE__`: This macro expands to a string that represents the date when the source code file was last compiled.
+- `__TIME__`: This macro expands to a string that represents the time when the source code file was last compiled.
+- `__STDC__`: This macro is defined when the compiler complies with the ANSI C standard.
+- `__GNUC__`: This macro is defined when the GNU C/C++ compiler is used to compile the code.
+- `__WIN32__`: This macro is defined when the code is compiled for the Windows operating system.
+
+> #### - How to include guard your header files
+To include guard a header file, you can use preprocessor directives to ensure that the header file is included only once in your code. Here's an example:
+
+```c
+#ifndef HEADER_FILE_H
+#define HEADER_FILE_H
+
+/* code declarations and definitions go here */
+
+#endif /* HEADER_FILE_H */
+```
+
+When the header file is included in a C or C++ file, the preprocessor first checks whether `HEADER_FILE_H` has been defined using `#ifndef`. If it has not been defined, the preprocessor defines it using `#define` and includes the contents of the header file. If `HEADER_FILE_H` has already been defined, the preprocessor skips the contents of the header file.
+
+This ensures that the header file is included only once in your code, preventing issues such as multiple definitions of the same function or variable.
+
+
 
 ## Tasks
 - [0. Object-like Macro](./0-object_like_macro.h)
@@ -22,15 +68,6 @@
 - [2. File name](./2-main.c)
 - [3. Function-like macro](./3-function_like_macro.h)
 - [4. SUM](./4-sum.h)
-- [5. Worst abuse of the C preprocessor (IOCCC winner, 1986)](./101-preprocessor_abuse.c)
-- [6. Fun with the preprocessor](./main.c)
-- [7. Crackme4](./100-crackme_password)
-- [8. Hexadecimal](./101-hexadecimal)
-- [9. Patience, persistence and perspiration make an unbeatable combination for success](./102-opcodes)
-- [10. Ineffective Is a big word to describe what you just did](./103-function_like_macro.h)
-- [11. It's not bragging if you can back it up](./104-function_like_macro.h)
-- [12. Noise is a buffer, more effective than cubicles or booth walls](./105-square_macro.h)
-- [13. A goal is not always meant to be reached, it often serves simply as something to aim at](./106-preprocessor_abuse.c)
 
 ---
 
