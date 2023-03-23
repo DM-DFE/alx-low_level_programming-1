@@ -2,69 +2,46 @@
 #include <stdio.h>
 
 /**
- * is_format - checks if a character is a valid format specifier
- *
- * @c: character to check
- */
-int is_format(char c)
-{
-	return (c == 'c' || c == 'i' || c == 'f' || c == 's');
-}
-
-/**
- * get_next_format - gets the next format specifier in a string
- *
- * @format: string to search
- * @i: index to start searching from
- * Return: index of next format specifier, or -1 if none found
- */
-int get_next_format(const char *format, int i)
-{
-	while (format[i])
-	{
-		if (is_format(format[i]))
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-/**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
-	va_list ap;
-	int i = 0;
+	va_list args;
 	char *s;
+	int i = 0;
 
-	va_start(ap, format);
-	while (format)
+	va_start(args, format);
+
+	while (format && format[i])
 	{
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(ap, int));
+				printf("%c", va_arg(args, int));
 				break;
 			case 'i':
-				printf("%d", va_arg(ap, int));
+				printf("%d", va_arg(args, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(ap, double));
+				printf("%f", va_arg(args, double));
 				break;
 			case 's':
-				s = va_arg(ap, char *);
-				printf("%s", s == NULL ? "(nil)" : s);
+				s = va_arg(args, char *);
+				if (s == NULL)
+					printf("(nil)");
+				else
+					printf("%s", s);
 				break;
 			default:
-				continue;
+				break;
 		}
-		i = get_next_format(format, i + 1);
-		if (i == -1)
-			break;
-		printf(", ");
+		if (format[i + 1] != '\0' && (format[i] == 'c' ||
+			format[i] == 'i' || format[i] == 'f' || format[i] == 's'))
+			printf(", ");
+		i++;
 	}
+
+	va_end(args);
 	printf("\n");
-	va_end(ap);
 }
