@@ -58,7 +58,6 @@ void print_all(const char * const format, ...)
 				printf("%s", s == NULL ? "(nil)" : s);
 				break;
 			default:
-				i++;
 				continue;
 		}
 		i = get_next_format(format, i + 1);
