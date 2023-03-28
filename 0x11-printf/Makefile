@@ -27,7 +27,10 @@ SRCS = main.c \
 		print_string_non_printable.c \
 		justifier.c \
 		get_format.c \
-		_itoa.c
+		get_format_util.c \
+		_itoa.c \
+		_uitoa.c \
+		_atoi.c
 
 
 OBJS = $(SRCS:.c=.o)

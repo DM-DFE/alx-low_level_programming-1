@@ -9,15 +9,15 @@
  */
 void _putchar(char c, void *count)
 {
-    static char buffer[BUFFER_SIZE];
-    static int index = 0;
+	static char buffer[BUFFER_SIZE];
+	static int index;
 
-    if (c == '\0' || index == BUFFER_SIZE)
-    {
-        write(STDOUT_FILENO, buffer, index);
-        index = 0;
-    }
-    buffer[index++] = c;
-    if (c != '\0')
-        (*(int *)count)++;
+	if (c == '\0' || index == BUFFER_SIZE)
+	{
+		write(STDOUT_FILENO, buffer, index);
+		index = 0;
+	}
+	buffer[index++] = c;
+	if (c != '\0')
+		(*(int *)count)++;
 }

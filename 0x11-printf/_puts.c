@@ -1,17 +1,18 @@
-//#include "main.h"
-#include <stdio.h>
+#include "main.h"
 
-void _putchar(char c, void *count);
-
-int
-_strlen(char *s)
+/**
+ * _strlen - returns the length of a string
+ * @s: string to get length of
+ * Return: length of string
+ */
+int _strlen(const char *s)
 {
-    int i;
+	int i;
 
-    for (i = 0; s[i]; i++)
-        ;
+	for (i = 0; s[i]; i++)
+		;
 
-    return (i);
+	return (i);
 }
 
 /**
@@ -21,7 +22,8 @@ _strlen(char *s)
  */
 void _puts(char *str, void *count)
 {
-    // todo: handle the case where str is NULL
-    while (*str)
-        _putchar(*str++, count);
+	if (str == NULL)
+		str = "(null)";
+	while (*str)
+		_putchar(*str++, count);
 }
