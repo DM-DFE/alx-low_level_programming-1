@@ -1,8 +1,70 @@
-# 0x12. C - Singly linked lists
+
+<h1 align="center">
+0x12. C - Singly linked lists
+</h1>
+
+<p align="center">
+    <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/229/giphy-3.gif" alt="Singly linked lists">
+</p>
 
 ## Resources
+- [Linked Lists](https://www.youtube.com/watch?v=udapt4FGY20&feature=youtu.be&t=2m10s)
+- [Google](https://www.google.com)
+- [Youtube](https://www.youtube.com)
 
 ## Learning Objectives
+- [When and why using linked lists vs arrays](#when-and-why-using-linked-lists-vs-arrays)
+- [How to build and use linked lists](#how-to-build-and-use-linked-lists)
+
+#### When and why using linked lists vs arrays
+Linked lists and arrays are both data structures commonly used in programming.
+
+Arrays are useful when you need to store a fixed amount of data and access elements in a specific order. They are typically faster for accessing elements than linked lists. However, arrays are less efficient for inserting and deleting elements in the middle of the array.
+
+Linked lists, on the other hand, are useful when you need to store a variable amount of data and don't need to access elements in a specific order. They are typically better for inserting and deleting elements than arrays. However, linked lists are less efficient when it comes to accessing elements in the middle of the list.
+
+So, the choice between linked lists and arrays depends on the specific use case and the operations that need to be performed on the data structure.
+
+#### How to build and use linked lists
+To build and use linked lists in C, you can create a `struct` to represent each node in the list. The `struct` should contain a data element and a pointer to the next node in the list.
+
+Here is an example `struct` definition for a linked list node:
+
+```c
+struct node {
+  int data;
+  struct node* next;
+};
+```
+
+To create a new node and add it to the list, you can use the `malloc` function to allocate memory for the new node, assign the data element, and set the `next` pointer to `NULL`.
+
+Here is an example function that adds a new node to the beginning of a linked list:
+
+```c
+void push(struct node** head_ref, int new_data) {
+  struct node* new_node = (struct node*)malloc(sizeof(struct node));
+  new_node->data = new_data;
+  new_node->next = (*head_ref);
+  (*head_ref) = new_node;
+}
+```
+
+To traverse a linked list, you can use a loop that follows the `next` pointers until `NULL` is reached.
+
+Here is an example function that prints the data elements in a linked list:
+
+```c
+void print_list(struct node* node) {
+  while (node != NULL) {
+    printf("%d ", node->data);
+    node = node->next;
+  }
+}
+```
+
+These are just a few examples of how to build and use linked lists in C. There are many other operations that can be performed on linked lists, such as removing nodes and sorting the list.
+
 
 ## Tasks
 
@@ -409,3 +471,15 @@ I bore my house upon my back!
 
 <details>
 <summary>
+<a href="./101-hello_holberton.asm">6. Real programmers can write assembly code in any language</a>
+</summary>
+
+> Compiled with: `nasm -f elf64 101-hello_holberton.asm && gcc -no-pie -std=gnu89 101-hello_holberton.o -o hello`
+
+> Output:
+```shell
+$ ./hello
+Hello, Holberton
+```
+
+</details>
