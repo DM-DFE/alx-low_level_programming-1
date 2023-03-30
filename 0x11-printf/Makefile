@@ -27,9 +27,8 @@ SRCS = main.c \
 		print_string_non_printable.c \
 		justifier.c \
 		get_format.c \
-		get_format_util.c \
+		get_format_utils.c \
 		_itoa.c \
-		_uitoa.c \
 		_atoi.c
 
 

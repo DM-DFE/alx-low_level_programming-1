@@ -98,4 +98,6 @@ char *_itoa(ssize_t, char *);
 char *_utoa(size_t, char *);
 char *_strdup(char *);
 
+void print_hex_helper(unsigned int number, void *count);
+
 #endif /* PRINTF_MAIN_H */
