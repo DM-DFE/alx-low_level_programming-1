@@ -18,5 +18,5 @@ main:
     mov	rax,0	; Exit code 0
     ret			; Return
 section .data
-    message:  db        "Hello, Holberton\n", 10, 0
+    message:  db        "Hello, Holberton", 17, 0
     fmt:    db "%s", 17, 0
