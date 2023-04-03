@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+/**
+ * is_alpha - checks if a character is alphabetic
+ * @c: the character to check
+ * Return: 1 if the character is alphabetic, 0 otherwise
+ */
+int is_alpha(char c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
 static format_specifier format_specifiers[] = {
 	{"c", print_char},
 	{"s", print_string},
@@ -13,9 +23,9 @@ static format_specifier format_specifiers[] = {
 	{"x", print_hex},
 	{"X", print_hex},
 	{"u", print_unsigned},
+	{"p", print_address},
 	{"r", print_reverse},
 	{"R", print_rot13},
-	{"p", print_address},
 	{"S", print_string_non_printable},
 	{NULL, NULL}
 };
@@ -31,8 +41,8 @@ int _printf(const char *format, ...)
 	format_t f = {0, -1, -1, -1, -1};
 	va_list args;
 
-	/* todo: handle the case where format is NULL */
-	if (format == NULL)
+	/* Note: printf segfaults if format is NULL */
+	if (!format)
 		return (-1);
 
 	va_start(args, format);
@@ -42,24 +52,21 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			f = get_format(&format);
+			if (f.flags == NULL)
+				return (-1);
+
 			for (i = 0; format_specifiers[i].specifier; ++i)
 				if (f.specifier == *format_specifiers[i].specifier)
 				{
 					format_specifiers[i].function(args, f, &count);
+					format++;
 					break;
 				}
-			if (format_specifiers[i].specifier == NULL)
-			{
-				_putchar(*(format - 1), &count);
-				_putchar(*format, &count);
-				format++;
-			}
 			free(f.flags);
 		}
 		else
 			_putchar(*format++, &count);
 	}
 	va_end(args);
-	_putchar('\0', &count);
 	return (count);
 }

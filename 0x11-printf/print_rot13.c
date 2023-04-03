@@ -11,7 +11,10 @@ void print_rot13(va_list args, format_t format, void *count)
 	char *str = va_arg(args, char *);
 	int i = 0;
 
-	CHECK_RIGHT_JUSTIFICATION(str, format, count, justifier)
+	UNUSED(format);
+
+	if (str == NULL)
+		return ;
 
 	while (str[i])
 	{
@@ -24,8 +27,4 @@ void print_rot13(va_list args, format_t format, void *count)
 			_putchar(str[i], count);
 		i++;
 	}
-
-	CHECK_LEFT_JUSTIFICATION(str, format, count, justifier)
-
-	_putchar('\0', count);
 }

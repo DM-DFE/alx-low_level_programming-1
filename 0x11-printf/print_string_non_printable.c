@@ -11,20 +11,20 @@ void print_string_non_printable(va_list args, format_t format, void *count)
 {
 	char *str = va_arg(args, char *);
 	int i;
-	(void)format;
 
-	CHECK_RIGHT_JUSTIFICATION(str, format, count, justifier)
-		for (i = 0; str[i]; i++)
+	UNUSED(format);
+
+	if (str == NULL)
+		str = "(null)";
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] < 32 || str[i] >= 127)
 		{
-			if (str[i] < 32 || str[i] >= 127)
-			{
-				_puts("\\x", count);
-				_putchar((str[i] / 16) + '0', count);
-				_putchar((str[i] % 16) + '0', count);
-			}
-			else
-				_putchar(str[i], count);
+			_puts("\\x0", count);
+			print_hex_helper(str[i], HEXADECIMAL_BASE_UPPER, count);
 		}
-	CHECK_LEFT_JUSTIFICATION(str, format, count, justifier)
-		_putchar('\0', count);
+		else
+			_putchar(str[i], count);
+	}
 }

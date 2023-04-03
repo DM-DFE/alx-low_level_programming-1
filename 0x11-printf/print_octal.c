@@ -2,6 +2,18 @@
 #include <stdlib.h>
 
 /**
+ * print_octal_helper - prints the octal representation of a number
+ * @number: the number to print
+ * @count: pointer to count of characters printed
+ */
+void print_octal_helper(unsigned int number, void *count)
+{
+	if (number > 7)
+		print_octal_helper(number / 8, count);
+	_putchar((number % 8) + '0', count);
+}
+
+/**
 * print_octal - prints the octal representation of a number
 * @args: va_list of arguments
 * @format: format struct
@@ -9,24 +21,9 @@
 */
 void print_octal(va_list args, format_t format, void *count)
 {
-	size_t number = format.length == 'h' ?
-			(unsigned short)va_arg(args, unsigned int) :
-			format.length == 'l' ? va_arg(args, unsigned long) :
-			va_arg(args, unsigned int);
-	char *n = _utoa(number, OCTAL_BASE);
-	int precision = format.precision > _strlen(n) ?
-		format.precision - _strlen(n) : 0;
+	unsigned int number = va_arg(args, unsigned int);
 
-	format.width -= precision;
+	UNUSED(format);
 
-	CHECK_RIGHT_JUSTIFICATION(n, format, count, justifier)
-
-	while (precision--)
-		_putchar('0', count);
-	_puts(n, count);
-
-	CHECK_LEFT_JUSTIFICATION(n, format, count, justifier)
-
-	_putchar('\0', count);
-	free(n);
+	print_octal_helper(number, count);
 }

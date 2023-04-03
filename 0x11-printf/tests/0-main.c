@@ -114,6 +114,8 @@ int main(void)
 		return (1);
 	}
 
+	printf("\n");
+
 	/* Test 10 */
 	len = _printf("Should print a single percent sign: %%\n");
 	len2 = printf("Should print a single percent sign: %%\n");
@@ -136,6 +138,8 @@ int main(void)
 		return (1);
 	}
 
+	printf("\n");
+
 	/* Test 12 */
 	len = _printf("css%ccs%scscscs", 'T', "Test");
 	len2 = printf("css%ccs%scscscs", 'T', "Test");
@@ -147,6 +151,8 @@ int main(void)
 		return (1);
 	}
 
+	printf("\n");
+
 	/* Test 13 */
 	len = _printf(str);
 	len2 = printf(str);
@@ -157,6 +163,7 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
+
 
 	/* Test 14 */
 	len = _printf("man gcc:\n%s", str);
@@ -170,15 +177,15 @@ int main(void)
 	}
 
 	/* Test 15 */
-	len = _printf(NULL);
-	len2 = printf(NULL);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("[15]: Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
+//	len = _printf(NULL);
+//	len2 = printf(NULL);
+//	fflush(stdout);
+//	if (len != len2)
+//	{
+//		printf("[15]: Lengths differ.\n");
+//		fflush(stdout);
+//		return (1);
+//	}
 
 	/* Test 16 */
 	len = _printf("%c", '\0');

@@ -48,11 +48,11 @@ char *reverse_string(char *str)
  */
 char *_itoa(ssize_t value, char *base)
 {
-	char *result = malloc(get_number_length(value) + 1);
 	ssize_t quotient = ABS(value), i = 0;
 	int base_len = _strlen(base);
+	char *result = malloc(get_number_length(value) + 1);
 
-	if (base_len < 2 || base_len > 16)
+	if (base_len < 2 || base_len > 16 || result == NULL)
 		return (NULL);
 
 	do {

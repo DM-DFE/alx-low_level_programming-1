@@ -3,13 +3,13 @@ NAME = _printf
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=gnu89
+CFLAGS = -Wall -Werror -Wextra -pedantic  # -std=gnu89
 CFLAGS += -g
 CFLAGS += -Wno-format
 
 RM = rm -f
 
-SRCS = main.c \
+SRCS = tests/0-main.c \
 		_printf.c \
 		_puts.c \
 		_putchar.c \
@@ -39,7 +39,6 @@ INC = -I .
 HEADER = main.h
 
 all: $(NAME)
-	@./$(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)

@@ -10,7 +10,7 @@ char *get_flags(const char **s)
 {
 	char flags[] = {'-', '+', ' ', '#', '0'};
 	int i, j = 0;
-	char *flag = malloc(5);
+	char *flag = malloc(sizeof *flag * 6);
 
 	if (flag == NULL)
 		return (NULL);
@@ -38,6 +38,10 @@ int get_width(const char **s)
 	for (; *(*s) >= '0' && *(*s) <= '9'; (*s)++, i++)
 		p[i] = *(*s);
 	p[i] = '\0';
+
+	if (i == 0)
+		return (-1);
+
 	return (_atoi(p));
 }
 
@@ -53,7 +57,8 @@ int get_precision(const char **s)
 	*(*s) == '.' ? (*s)++ : 0;
 	for (; *(*s) >= '0' && *(*s) <= '9'; (*s)++, i++)
 		p[i] = *(*s);
-	i ? p[i] = '\0' : 0;
+	if (i != 0)
+		p[i] = '\0';
 	return (_atoi(p));
 }
 
@@ -93,7 +98,6 @@ char get_specifier(const char **s)
 		if (*(*s) == specifiers[i])
 		{
 			specifier = specifiers[i];
-			(*s)++;
 			break;
 		}
 	return (specifier);
