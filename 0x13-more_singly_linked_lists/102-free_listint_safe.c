@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * looped_listint_len - calculates the length of a loop in a linked list
+ * loop_listint_len - calculates the length of a loop in a linked list
  * @head: pointer to the head of the linked list
  *
  * Return: the number of nodes in the loop, or 0 if there is no loop
  */
-size_t looped_listint_len(const listint_t *head)
+size_t loop_listint_len(const listint_t *head)
 {
 	const listint_t *slow_ptr, *fast_ptr;
 	size_t length = 1;
@@ -58,7 +58,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *tmp;
 	size_t length, i;
 
-	length = looped_listint_len(*h);
+	length = loop_listint_len(*h);
 
 	if (length == 0)
 	{
@@ -77,7 +77,10 @@ size_t free_listint_safe(listint_t **h)
 			*h = (*h)->next;
 			free(tmp);
 		}
+		*h = NULL;
 	}
+
+	h = NULL;
 
 	return (i);
 }
