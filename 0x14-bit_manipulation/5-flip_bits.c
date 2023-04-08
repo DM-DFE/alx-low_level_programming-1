@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * flip_bits - returns the number of bits you would need to flip to get from one
- * number to another.
+ * flip_bits - returns the number of bits you would need to
+ * flip to get from one number to another.
  * @n: number
  * @m: number
  * Return: number of bits you would need to flip to get from one number to
@@ -10,12 +10,15 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int i, count = 0;
+	unsigned long int xor_value = n ^ m;
+	unsigned int count = 0;
 
-	for (i = 0; i < sizeof(unsigned long int) * 8; i++)
+	while (xor_value)
 	{
-		if (((n >> i) & 1) != ((m >> i) & 1))
-			count++;
+		count++;
+		/* clear the least significant bit that is set */
+		xor_value &= xor_value - 1;
 	}
+
 	return (count);
 }
